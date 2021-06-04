@@ -44,6 +44,8 @@ Give examples
 
 ### Installing
 
+There are some steps that you have to take to 
+
 A step by step series of examples that tell you how to get a development env running
 
 Say what the step will be
@@ -78,14 +80,13 @@ $ ./manage start
 
 Once the application's containers are up, you will find the following endpoints available: 
 
+- **The API** (http://localhost:8001/api)
+
+- **The API docs** (http://localhost:8001/api-docs)
 
 - **The frontend** (http://localhost:8002)
 
 - **The database admin page** (http://localhost:8888)
-
-- **The API** (http://localhost:8001/api)
-
-- **The API docs** (http://localhost:8001/api-docs)
 
 To stop the application, and keep the containers ready on your docker, simply make a `stop`: 
 
@@ -137,16 +138,18 @@ Add additional notes about how to deploy this on a live system
 ## Built With
 
 * [Node.js](https://nodejs.org/en/) - Javascript runtime
+* [Docker](https://docker.com) - Container platform for rapid app/microservices development and delivery
 * [ReactJS](https://reactjs.org/) - A JavaScript library for building user interfaces
-* [Ngrok](https://ngrok.com/) - Exposes local servers behind NATs and firewalls to the public internet over secure tunnels.
 * [Angular](https://angular.io/) - AngularJS is a toolset for building a framework suited to application development. It is fully extensible and works well with other libraries.
 * [MySQL](https://www.mysql.com/) - Open source relational database
+* [Ngrok](https://ngrok.com/) - Exposes local servers behind NATs and firewalls to the public internet over secure tunnels.
+* [Openshift](https://www.openshift.com/) - Open source container application platform based on the Kubernetes container orchestrator for enterprise app development.
 
 ## Contributing / Contribuer
 
-Found a bug? Ready to submit a `PR`? Want to submit a proposal for your grand idea? Please read [CONTRIBUTING.md](https://github.com/torjc01/CJQ-ClubJudoQuebec/contributing.md) for details on our code of conduct, and the process for submitting pull requests to us.
+Found a bug? Ready to submit a `PR`? Want to submit a proposal for your grand idea? Please read [CONTRIBUTING.md](Contributing.md) for details on our code of conduct, and the process for submitting pull requests to us.
 
-Vous avez trouvé un bug? Êtes-vous prêt à soumettre un `PR`? Voulez-vous soumettre une proposition pour votre grande idée? Merci de lire [CONTRIBUTING.md](https://github.com/torjc01/CJQ-ClubJudoQuebec/contributing.md) pour des détails sur notre code de conduite, et le processus pour nous soumettre des `pull requests`. 
+Vous avez trouvé un bug? Êtes-vous prêt à soumettre un `PR`? Voulez-vous soumettre une proposition pour votre grande idée? Merci de lire [CONTRIBUTING.md](Contributing.md) pour des détails sur notre code de conduite, et le processus pour nous soumettre des `pull requests`. 
 
 ## Versioning
 
@@ -183,3 +186,6 @@ Le site web du CJQ est licensé sous la license Apache 2.0 - voir le fichier [LI
 * [Club de Taeknowdo CRSA](https://www.tkd-crsa.com/)
 * [Taekwondo Ste-Foy](http://tkd-ste-foy.com/)
 * [Club de Judo de la Vieille Capitale](https://www.judovieillecapitale.com/)
+* [Club De Judo Aikibudo De Charlesbourg](http://www.judoaikibudocharlesbourg.com/)
+* [Dojo de Beauport](https://dojobeauport.com/)
+* [Judo Club Lévis](https://judolevis.ca/)
