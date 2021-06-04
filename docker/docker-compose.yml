@@ -1,0 +1,87 @@
+# ###
+# Filename: docker-compose.yml
+# Fichier docker-compose, responsable d'orchestrer et lancer l'application 
+# du Club de Judo de Québec.
+# Author: Julio-Cesar Torres <juliozohar@gmail.com> (@juliozohar)
+# Date: 2021-06-03
+#
+#   Copyright 2021 Kryptogarten LLC
+#
+#   Licensed under the Apache License, Version 2.0 (the "License");
+#   you may not use this file except in compliance with the License.
+#   You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+#   Unless required by applicable law or agreed to in writing, software
+#   distributed under the License is distributed on an "AS IS" BASIS,
+#   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+#   See the License for the specific language governing permissions and
+#   limitations under the License.
+# ###
+version: "3"
+
+services: 
+
+    # REST/API
+    cjq-rest-api: 
+        container_name: rest-api
+        image: cjq-rest-api
+        environment: 
+            - APP-PORT:8001
+        ports:
+            - 8001:8001
+        networks: 
+            - cjq-net
+        depends_on:
+            - mysqldb
+        command: [
+            "npm", "start"
+        ]
+
+    # React JS frontend application
+    cjq-frontend:
+        container_name: frontend
+        image: cjq-frontend
+        environment: 
+            - APP-PORT:8002
+        ports:
+            - 8002:8002
+        networks: 
+            - cjq-net
+        volumes:
+            - '../cjq-angular:/app'
+            - '/app/node_modules'
+        depends_on: 
+            - cjq-rest-api
+        command: [
+            "ng", "serve"
+        ]
+
+    # MySQL node 
+    mysqldb:
+        container_name: MySQLDB
+        image: cjq-mysql-db
+        command: 
+          --default-authentication-plugin=mysql_native_password --character-set-server=utf8 --collation-server=utf8_general_ci
+        restart: always
+        environment: 
+          MYSQL_DATABASE: dummy
+          MYSQL_ROOT_PASSWORD: blitzkrieg
+          # MYSQL_USER: julio
+          # MYSQL_PASSWORD: A123456
+          ports: 3307:3306
+        volumes: 
+          - D:\Development\mysql-container\data:/var/lib/mysql
+    
+    adminer: 
+        container_name: AdminerKrypto
+        image: adminer
+        restart: always
+        ports: 
+          - 8888:8080
+        depends_on:
+            - mysqldb
+
+networks:
+    cjq-net:
