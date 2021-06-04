@@ -72,7 +72,8 @@ services:
           # MYSQL_PASSWORD: A123456
           ports: 3307:3306
         volumes: 
-          - D:\Development\mysql-container\data:/var/lib/mysql
+          - ~/Development/mysql-container/data:/var/lib/mysql    # Use on *nix platform
+          # D:\Development\mysql-container\data:/var/lib/mysql   # Use on windows platform
     
     adminer: 
         container_name: AdminerKrypto
