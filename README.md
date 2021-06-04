@@ -5,6 +5,10 @@
 [Version Française](README_fr_CA.md)
 # CJQ-Club de Judo de Quebec
 
+<p align="center">
+    <img src="./Hanko-Logo.png"width="400" />
+</p>
+
 Implementation de site pour mandat du RAC.
 
 Le Club de Judo de Québec désire se doter d'un site web pour afficher ses activités, donner des informations et prendre des inscriptions. Il vous demande d'effectuer l'analyse et le développement de ce site. 
