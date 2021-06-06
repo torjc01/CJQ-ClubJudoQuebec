@@ -36,45 +36,34 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Prerequisites / Pré-requis
 
-What things you need to install the software and how to install them
+In order to build and run the Club de Judo de Quebec's application, you must have some pre-installed basic software. 
 
-```
-Give examples
-```
+First, you must have `node` installed in your system, along with its package manager, `npm`. This is essential, as node is the basis upon which all the application is built. 
+
+You must also have `Docker` installed. Although it is possible to deploy the several pieces of software that compose this application separately, it would be work intensive and very error prone. `Docker` allows for a standardized deployment process and simplifies the instalation of prerequisite software, which can be installed directly on the container instead of on the host. The database, for instance, will be installed on the container and not on the host. 
+
+All the other prerequisites necessary for this application will be dealt with by `node` and `docker`. 
 
 ### Installing
 
-There are some steps that you have to take to 
-
-A step by step series of examples that tell you how to get a development env running
-
-Say what the step will be
+If you haven't done it yet, clone this application code to your computer. 
 
 ```
-Give the example
+git clone http://...
 ```
 
-And repeat
+Then, use the `manage` shell script to build the application.
 
-```
-until finished
-```
-
-End with an example of getting some data out of the system or using it for a little demo
-
-## Example Use
-
-Use the `manage` shell script to build, start, stop and destroy the application. 
-
-On the first use, you will need to build the application: 
 ```
 $ cd docker
 $ ./manage build 
 ```
+## Example Use
 
-After the build is done, launch the application: 
+To launch the application, run the following script
 
 ```
+cd docker
 $ ./manage start
 ```
 
