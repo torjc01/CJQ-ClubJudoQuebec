@@ -22,6 +22,8 @@
 -- ###
 
 -- Creation d'un nouveau usager, et attribution des accès d'admin à lui. 
+DROP USER IF EXISTS 'cjqadmin'@'%'; 
+
 CREATE USER 'cjqadmin'@'%' IDENTIFIED BY '123456'; 
 
 GRANT ALL PRIVILEGES ON *.* TO 'cjqadmin'@'%'; 
@@ -31,6 +33,8 @@ FLUSH PRIVILEGES;
 SHOW GRANTS FOR 'cjqadmin'@'%'; 
 
 -- Création d'un nouveau usager, et attribution des accès d'usager web. 
+DROP USER IF EXISTS 'cjqweb'@'%'; 
+
 CREATE USER 'cjqweb'@'%' IDENTIFIED BY '123456'; 
 
 GRANT ALL PRIVILEGES ON *.* TO 'cjqweb'@'%'; 

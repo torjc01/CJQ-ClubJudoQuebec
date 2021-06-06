@@ -72,9 +72,12 @@ services:
           # MYSQL_PASSWORD: A123456
           ports: 3307:3306
         volumes: 
-          - ~/Development/mysql-container/data:/var/lib/mysql    # Use on *nix platform
-          # D:\Development\mysql-container\data:/var/lib/mysql   # Use on windows platform
-    
+          # - ~/Development/mysql-container/data:/var/lib/mysql    # Use on *nix platform
+          - D:\Development\mysql-container\data:/var/lib/mysql     # Use on windows platform
+          # - "../mysql-obk/CJQ-config.sql:/docker-entrypoint-initdb.d/1.sql"
+          - "../mysql-obk/CJQ-DDL.sql:/docker-entrypoint-initdb.d/1.sql"
+          - "../mysql-obk/CJQ-DML.sql:/docker-entrypoint-initdb.d/2.sql"
+
     adminer: 
         container_name: AdminerKrypto
         image: adminer
