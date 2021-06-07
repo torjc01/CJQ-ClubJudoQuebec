@@ -31,13 +31,52 @@ INSERT INTO MODALITE(nomModalite) VALUES ('Junior');
 INSERT INTO MODALITE(nomModalite) VALUES ('Senior');
 INSERT INTO MODALITE(nomModalite) VALUES ('Competition');
 INSERT INTO MODALITE(nomModalite) VALUES ('Kata');
+COMMIT; 
 
 --  Insertion de valeurs dans la table HORAIRE
 INSERT INTO HORAIRE(heureDebut, heureFin, nomHoraire) VALUES ('090000', '110000', 'Matin'); 
 INSERT INTO HORAIRE(heureDebut, heureFin, nomHoraire) VALUES ('120000', '130000', 'Midi'); 
 INSERT INTO HORAIRE(heureDebut, heureFin, nomHoraire) VALUES ('140000', '160000', 'Apres-midi'); 
 INSERT INTO HORAIRE(heureDebut, heureFin, nomHoraire) VALUES ('190000', '210000', 'Soir'); 
+COMMIT; 
+
+--  Insertion de valeurs dans la table MEMBRE
+INSERT INTO MEMBRE(nom, prenom, dateNaissance, sexe, occupation, adresse, ville, codePostal, province, 
+                   telephoneResidence, telephoneCellulaire, courriel, grade, datePromotionGrade, nomPersonneUrgence,
+                   telephoneResidenceUrgence, telephoneCellulaireUrgence, dateMiseAJour )
+VALUES
+    ('Torres dos Santos', 'Julio Cesar', '1976-11-08', 'M', 'Analyste de systèmes', '3029, rue Raudot', 'Québec', 'G1C1W8', 'QC',
+     '5813077882', '5813077882', 'juliozohar@gmail.com', 'noire', '2015-07-08', 'Edjara Rodrigues Morais', '5813089368', '5813089368', 
+    '2021-06-07'); 
+
+COMMIT; 
+
+--  Insertion de valeurs dans la table ENTRAINEUR
+INSERT INTO ENTRAINEUR(nom, prenom, registreFederation, gradeDan)
+    VALUES 
+    ('Miúra', "Takaôki", 'IJF-23423423-CA', 5);
+COMMIT; 
+
+-- Insertion de valeurs dans la table COURS
+INSERT INTO COURS(codeHoraire, codeModalite, codeEntraineur)
+    VALUES (1, 1, 1); 
+COMMIT; 
+
+--  Insertion de valeurs dans la table INSCRIPTION
+INSERT INTO INSCRIPTION (codeMembre, codeCours, dateInscription, dateDebut)
+    VALUES (1, 1, '2021-06-03', '2021-06-07'); 
+COMMIT;
+
+--  Insertion de valeurs dans la table CONTACT
+INSERT INTO CONTACT (nom, prenom, courriel, telephone, messageContact, indicateurEtatMessage, tokenReponse, codeMembre)
+    VALUES ('Mane', 'Ze', 'zemane@gmail.com', '4183439832', "J'aimerais avoir de l'info sur le cours de judo pour adultes...", 
+            'R', 'asdahjk4298323jhksada9sd8u7234hjd23==', NULL); 
+COMMIT; 
 
 -- Display data created
 SELECT * from MODALITE; 
 SELECT * from HORAIRE;
+SELECT * from MEMBRE;
+SELECT * FROM ENTRAINEUR;
+SELECT * FROM COURS; 
+SELECT * FROM INSCRIPTION;

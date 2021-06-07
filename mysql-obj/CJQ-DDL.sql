@@ -22,13 +22,13 @@
 
 -- Dartabase creation
 DROP DATABASE IF EXISTS CJQ; 
-CREATE DATABASE CJQ CHARACTER SET utf8 COLLATE utf8_general_ci;
+CREATE DATABASE CJQ CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci;
 USE CJQ; 
 
 -- Modalite creation 
 CREATE TABLE MODALITE(
-    codeModalite    INT(2)      NOT NULL AUTO_INCREMENT, 
-    nomModalite     VARCHAR(16) NOT NULL, 
+    codeModalite    INT         NOT NULL AUTO_INCREMENT, 
+    nomModalite     CHAR(16)    NOT NULL, 
 
     PRIMARY KEY(codeModalite),
     INDEX(nomModalite)
@@ -36,10 +36,10 @@ CREATE TABLE MODALITE(
 
 -- Horaire creation
 CREATE TABLE HORAIRE(
-    codeHoraire INT(2)      NOT NULL AUTO_INCREMENT, 
+    codeHoraire INT         NOT NULL AUTO_INCREMENT, 
     heureDebut  TIME        NOT NULL, 
     heureFin    TIME        NOT NULL, 
-    nomHoraire  VARCHAR(16) NOT NULL, 
+    nomHoraire  CHAR(16)    NOT NULL, 
 
     PRIMARY KEY(codeHoraire), 
     INDEX(nomHoraire)
@@ -47,11 +47,11 @@ CREATE TABLE HORAIRE(
 
 -- Entraineur creation
 CREATE TABLE ENTRAINEUR(
-    codeEntraineur INT(2) NOT NULL AUTO_INCREMENT, 
-    nom VARCHAR(32) NOT NULL, 
-    prenom VARCHAR(32) NOT NULL, 
-    registreFederation VARCHAR(32) NOT NULL, 
-    gradeDan INT(1), 
+    codeEntraineur INT NOT NULL AUTO_INCREMENT, 
+    nom CHAR(32) NOT NULL, 
+    prenom CHAR(32) NOT NULL, 
+    registreFederation CHAR(32) NOT NULL, 
+    gradeDan INT, 
 
     PRIMARY KEY(codeEntraineur), 
     INDEX(nom, prenom)
@@ -59,10 +59,10 @@ CREATE TABLE ENTRAINEUR(
 
 -- Cours creation
 CREATE TABLE COURS(
-    codeCours INT(2) NOT NULL AUTO_INCREMENT, 
-    codeHoraire INT(2) NOT NULL, 
-    codeModalite INT(2) NOT NULL, 
-    codeEntraineur INT(2) NOT NULL, 
+    codeCours       INT NOT NULL AUTO_INCREMENT, 
+    codeHoraire     INT NOT NULL, 
+    codeModalite    INT NOT NULL, 
+    codeEntraineur  INT NOT NULL, 
 
     PRIMARY KEY (codeCours),
     INDEX(codeCours, codeHoraire), 
@@ -76,25 +76,25 @@ CREATE TABLE COURS(
 
 -- Membre creation 
 CREATE TABLE MEMBRE(
-    codeMembre INT NOT NULL AUTO_INCREMENT, 
-    nom VARCHAR(32) NOT NULL, 
-    prenom VARCHAR(32) NOT NULL, 
-    dateNaissance DATE NOT NULL, 
-    sexe CHAR(1) NOT NULL, 
-    occupation VARCHAR(32),
-    addresse VARCHAR(32) NOT NULL, 
-    ville VARCHAR(32) NOT NULL, 
-    codePostal VARCHAR(6) NOT NULL, 
-    province VARCHAR(32) NOT NULL, 
-    telephoneResidence VARCHAR(10),
-    telephoneCellulaire VARCHAR(10),
-    courriel VARCHAR(64),
-    grade VARCHAR(8) NOT NULL, 
-    datePromotionGrade DATE NOT NULL, 
-    nomPersonneUrgence VARCHAR(64) NOT NULL, 
-    telephoneResidenceUrgence VARCHAR(10) NOT NULL, 
-    telephoneCellulaireUrgence VARCHAR(10) NOT NULL, 
-    dateMiseAJour DATE NOT NULL, 
+    codeMembre                  INT NOT NULL AUTO_INCREMENT, 
+    nom                         CHAR(32) NOT NULL, 
+    prenom                      CHAR(32) NOT NULL, 
+    dateNaissance               DATE NOT NULL, 
+    sexe                        CHAR(1) NOT NULL, 
+    occupation                  CHAR(32),
+    adresse                     CHAR(32) NOT NULL, 
+    ville                       CHAR(32) NOT NULL, 
+    codePostal                  CHAR(6) NOT NULL, 
+    province                    CHAR(32) NOT NULL, 
+    telephoneResidence          CHAR(10),
+    telephoneCellulaire         CHAR(10),
+    courriel                    CHAR(64),
+    grade                       CHAR(8) NOT NULL, 
+    datePromotionGrade          DATE NOT NULL, 
+    nomPersonneUrgence          CHAR(64) NOT NULL, 
+    telephoneResidenceUrgence   CHAR(10), 
+    telephoneCellulaireUrgence  CHAR(10), 
+    dateMiseAJour               DATE NOT NULL, 
 
     PRIMARY KEY(codeMembre), 
     INDEX(nom, prenom)
@@ -103,13 +103,15 @@ CREATE TABLE MEMBRE(
 -- Inscription creation
 CREATE TABLE INSCRIPTION( 
     codeInscription INT NOT NULL AUTO_INCREMENT, 
+    codeMembre      INT NOT NULL, 
+    codeCours       INT NOT NULL, 
     dateInscription DATE NOT NULL,
-    dateDebut DATE NOT NULL, 
-    codeCours INT(2) NOT NULL, 
-    codeMembre INT NOT NULL, 
+    dateDebut       DATE NOT NULL, 
+    
 
     PRIMARY KEY(codeInscription), 
-    INDEX(dateInscription), 
+    INDEX(codeCours),
+    INDEX(codeMembre),
     FOREIGN KEY(codeCours)
         REFERENCES COURS(codeCours), 
     FOREIGN KEY (codeMembre)
@@ -119,11 +121,19 @@ CREATE TABLE INSCRIPTION(
 -- Contact creation 
 CREATE TABLE CONTACT(
     codeSeqContact INT NOT NULL AUTO_INCREMENT, 
-    nom VARCHAR(32) NOT NULL, 
-    prenom VARCHAR(32) NOT NULL, 
-    courriel VARCHAR(64) NOT NULL,
-    telephone VARCHAR(10) NOT NULL,  -- format code area + numero, sans espaces ni symboles
+    nom CHAR(32) NOT NULL, 
+    prenom CHAR(32) NOT NULL, 
+    courriel CHAR(64) NOT NULL,
+    telephone CHAR(10) NOT NULL,  -- format code area + numero, sans espaces ni symboles
     messageContact VARCHAR(2048), 
+    indicateurEtatMessage CHAR(1), 
+    tokenReponse CHAR(64), 
+    codeMembre INT, 
 
-    PRIMARY KEY(codeSeqContact)
+    PRIMARY KEY(codeSeqContact), 
+    INDEX(indicateurEtatMessage),
+    INDEX(codeMembre),
+    FOREIGN KEY(codeMembre)
+        REFERENCES MEMBRE(codeMembre)
+
 )ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
