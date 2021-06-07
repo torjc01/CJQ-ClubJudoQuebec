@@ -161,6 +161,12 @@ build(){
     -t 'cjq-rest-api' \
     -f '../cjq-api/Dockerfile.api.dev' './../cjq-api/'
 }
+build-api(){
+  echo -e "\nBuilding cjq-rest-api image..."
+  docker build \
+    -t 'cjq-rest-api' \
+    -f '../cjq-api/Dockerfile.api.dev' './../cjq-api/'
+}
 
 build-db(){
   echo -e "\nBuilding cjq-mysql-db image..."
@@ -323,6 +329,11 @@ case "${COMMAND}" in
     _startupParams=$(getStartupParams $@)
     configureEnvironment $@
     build-db ${_startupParams}
+    ;;
+  build-api)
+    _startupParams=$(getStartupParams $@)
+    configureEnvironment $@
+    build-api ${_startupParams}
     ;;
   start|start|up)
     configureEnvironment

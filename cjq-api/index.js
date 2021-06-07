@@ -22,8 +22,9 @@
 // Creation du serveur express et de l'application
 let express     = require('express'); 
 let cors        = require('cors'); 
-let ngrok       = require('ngrok'); 
+//let ngrok       = require('ngrok'); 
 let swaggerUi   = require('swagger-ui-express'); 
+let errorHelper = require('./helpers/errorHelpers'); 
 
 let { appName, hostname, port, swaggerFile } 
                 = require('./helpers/config');
@@ -34,11 +35,34 @@ let router      = express.Router();
 
 const swaggerDoc = require(swaggerFile);
 
+// Routes 
+const getApp        = require('./routes/getApp');
+const getContact    =  require('./routes/getContact');
+const getContacts   =  require('./routes/getContacts');
+
+console.log('*'.repeat(80)); 
+console.log("0: > ", getApp); 
+console.log("1: > ", getContacts); 
+console.log("2: > ", getContact); 
+console.log('*'.repeat(80)); 
+
 app.use(express.json());                                                // Configure middleware de lecture de json
+
 app.use(cors());                                                        // Configure middleware pour CORS
+
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDoc));     // Configure swagger pour la documentation de l'API
 
 app.use('/api', router);                                                // Configure router pour que toutes les routes soient prefixées par /api/v1
+
+router.route('/')
+    .get(getApp);
+
+router.route('/contacts')
+    .get(getContacts); 
+
+router.route('/contacts/:id')
+    .get(getContact);
+
 
 // Créer serveur pour écouter la PORT 
 let server = app.listen(port, function(){
