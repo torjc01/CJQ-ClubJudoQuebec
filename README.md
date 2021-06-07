@@ -132,6 +132,31 @@ La documentation des APIs du projet sont disponibles à l'adresse du [Swagger Op
 
 Depending on the size of the project, if it is small and simple enough the reference docs can be added to the README. For medium size to larger projects it is important to at least provide a link to where the API reference docs live.
 
+The data model is simplified for the RAC's requisites, yet it is still complex enough to demonstrate knowledge on dealing with data modelling and database programming / administration. 
+
+The model has 7 basic tables, described below: 
+
+- `MEMBRE`: A club's member personnal data
+- `INSCRIPTION`: This is an inscription a member has on a course, past or present.
+- `COURS`: Courses options available on the dojo;
+- `HORAIRE`: Schedule options for courses on the dojo; 
+- `MODALITE`: Modality of course members can choose from; 
+- `ENTRAINEUR`: Data about the coaches teaching the various courses;
+- `CONTACT`: Contacts done either by the club's members or the general public, via a contact form on the web application. 
+
+Below, you will find the logical and physical data model diagrams for this database. 
+
+<p align="center">
+    <img src="./assets/images/cjqLogicalDatamodel.png"width="800" />
+    <p align="center"><b>Logical data model</b></p>
+</p>
+
+<p align="center">
+    <img src="./assets/images/cjqPhysicalDatamodel.png"width="800" />
+    <p align="center"><b>Physical data model</b></p>
+</p>
+
+
 ## Running the tests
 
 Explain how to run the automated tests for this system
