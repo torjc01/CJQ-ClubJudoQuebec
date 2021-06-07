@@ -206,7 +206,17 @@ configureEnvironment() {
   
   # Global Environment variables 
   export API_PORT=8001
-  export APP_PORT=8002
+  export APP_PORT=9876
+  export MYSQL_DATABASE=dummy
+  export MYSQL_ROOT_PASSWORD=blitzkrieg
+  export MYSQL_PORT_LOCAL=3306
+  export MYSQL_PORT_CONTAINER=3307
+  export MYSQL_PERSISTENCE_LOCALDIR=~/Development/mysql-container/data
+  # export MYSQL_PERSISTENCE_LOCALDIR=D:\Development\mysql-container\data
+  # export MYSQL_USER: julio
+  # export MYSQL_PASSWORD: A123456
+  export ADMINER_PORT_LOCAL=8888
+  export ADMINER_PORT_CONTAINER=8080
 }
 
 getInputParams() {
