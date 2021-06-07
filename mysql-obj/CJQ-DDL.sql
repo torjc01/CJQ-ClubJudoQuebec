@@ -20,12 +20,12 @@
 --  limitations under the License.
 -- ###
 
--- Dartabase creation
+-- Database 
 DROP DATABASE IF EXISTS CJQ; 
 CREATE DATABASE CJQ CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci;
 USE CJQ; 
 
--- Modalite creation 
+-- Modalite  
 CREATE TABLE MODALITE(
     codeModalite    INT         NOT NULL AUTO_INCREMENT, 
     nomModalite     CHAR(16)    NOT NULL, 
@@ -34,7 +34,7 @@ CREATE TABLE MODALITE(
     INDEX(nomModalite)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4; 
 
--- Horaire creation
+-- Horaire 
 CREATE TABLE HORAIRE(
     codeHoraire INT         NOT NULL AUTO_INCREMENT, 
     heureDebut  TIME        NOT NULL, 
@@ -45,7 +45,7 @@ CREATE TABLE HORAIRE(
     INDEX(nomHoraire)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- Entraineur creation
+-- Entraineur 
 CREATE TABLE ENTRAINEUR(
     codeEntraineur INT NOT NULL AUTO_INCREMENT, 
     nom CHAR(32) NOT NULL, 
@@ -57,7 +57,7 @@ CREATE TABLE ENTRAINEUR(
     INDEX(nom, prenom)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- Cours creation
+-- Cours 
 CREATE TABLE COURS(
     codeCours       INT NOT NULL AUTO_INCREMENT, 
     codeHoraire     INT NOT NULL, 
@@ -74,7 +74,7 @@ CREATE TABLE COURS(
         REFERENCES ENTRAINEUR(codeEntraineur)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- Membre creation 
+-- Membre  
 CREATE TABLE MEMBRE(
     codeMembre                  INT NOT NULL AUTO_INCREMENT, 
     nom                         CHAR(32) NOT NULL, 
@@ -100,7 +100,7 @@ CREATE TABLE MEMBRE(
     INDEX(nom, prenom)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- Inscription creation
+-- Inscription 
 CREATE TABLE INSCRIPTION( 
     codeInscription INT NOT NULL AUTO_INCREMENT, 
     codeMembre      INT NOT NULL, 
@@ -118,7 +118,7 @@ CREATE TABLE INSCRIPTION(
         REFERENCES MEMBRE(codeMembre)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 AUTO_INCREMENT=1000;
 
--- Contact creation 
+-- Contact  
 CREATE TABLE CONTACT(
     codeSeqContact INT NOT NULL AUTO_INCREMENT, 
     nom CHAR(32) NOT NULL, 
@@ -137,3 +137,23 @@ CREATE TABLE CONTACT(
         REFERENCES MEMBRE(codeMembre)
 
 )ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--  View current date
+CREATE VIEW V_DATE AS SELECT CURRENT_DATE; 
+
+-- View current time 
+CREATE VIEW V_NOW AS SELECT CURRENT_TIME; 
+
+-- View cours 
+CREATE VIEW V_COURS_EVENEMENT AS 
+SELECT  A.codeModalite, A.nomModalite, 
+        B.codeHoraire, B.heureDebut, B.heureFin, B.nomHoraire, 
+        C.codeEntraineur, C.nom, C.prenom, C.registreFederation, C.gradeDan
+FROM    MODALITE A, 
+        HORAIRE B, 
+        ENTRAINEUR C,
+        COURS D
+WHERE 
+    D.codeModalite   = A.codeModalite 
+AND D.codeHoraire    = B.codeHoraire 
+AND D.codeEntraineur = C.codeEntraineur		
