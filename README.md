@@ -54,7 +54,7 @@ git clone https://github.com/torjc01/CJQ-ClubJudoQuebec
 
 Afterwards, you must configure the environment variables, that control the execution os the various parts of the application. 
 
-Open the file `./docker/manage`, find the function `configureEnvironment()` and change the following variables to your own environment: 
+Open the file `./docker/manage`, find the function `configureEnvironment()` and change the following variables to reflect your own environment: 
 
 `API_PORT`: the api port; e.g `8001`
 
@@ -84,9 +84,15 @@ Then, use the `manage` shell script to build the application.
 $ cd docker
 $ ./manage build 
 ```
+
+Now, the last step is to build the database container. It will setup a `mysql server community edition` container answering on port 3306, and `Adminer`, a web application for database admin, on port 8888. 
+
+``` 
+$ ./manage build-db
+```
 ## Example Use
 
-To launch the application, run the following script
+To launch the application, run the following script: 
 
 ```
 cd docker
