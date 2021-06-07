@@ -52,31 +52,36 @@ If you haven't done it yet, clone this application code to your computer.
 git clone https://github.com/torjc01/CJQ-ClubJudoQuebec
 ```
 
-Afterwards, you must configure the environment variables, that control the execution os the various parts of the application. 
+Afterwards, you must configure the environment variables, that control the execution os the various parts of the docker container.  
 
 Open the file `./docker/manage`, find the function `configureEnvironment()` and change the following variables to reflect your own environment: 
 
-`API_PORT`: the api port; e.g `8001`
+- `API_PORT`: the api port; e.g `8001`
 
-`APP_PORT`: the application frontend port; e.g `8002`
+- `APP_PORT`: the application frontend port; e.g `8002`
 
-`MYSQL_DATABASE`: the database to be created; e.g. `'dummy'`
+- `MYSQL_DATABASE`: the database to be created; e.g. `'dummy'`
 
-`MYSQL_ROOT_PASSWORD`: the password for the database root user; e.g `'blitzkrieg'`
+- `MYSQL_ROOT_PASSWORD`: the password for the database root user; e.g `'blitzkrieg'`
 
-`MYSQL_PORT_LOCAL`: the database port on the local machine; e.g. `3306`
+- `MYSQL_PORT_LOCAL`: the database port on the local machine; e.g. `3306`
 
-`MYSQL_PORT_CONTAINER`: the database on the container port; e.g. `3307`
+- `MYSQL_PORT_CONTAINER`: the database on the container port; e.g. `3307`
 
-`MYSQL_PERSISTENCE_LOCALDIR`: the local dir where the persistent database files will be stored; e.g. `'~/Development/mysql-container/data'`
+- `MYSQL_PERSISTENCE_LOCALDIR`: the local dir where the persistent database files will be stored; e.g. `'~/Development/mysql-container/data'`. You should use your operating system's naming convention to setup the persistence local dir. For instance, if you're using windows, the example above could be redefined as `'C:\Development\mysql-container\data'`. 
 
-You should use your operating system's naming convention to setup the persistence local dir. For instance, if you're using windows, the example above could be redefined as `'C:\Development\mysql-container\data'`. 
+- `ADMINER_PORT_LOCAL`: adminer local machine port, e.g. `8888`
 
-`ADMINER_PORT_LOCAL`: adminer local machine port, e.g. `8888`
+0 `ADMINER_PORT_CONTAINER`=adminer container port, e.g. `8080`
 
-`ADMINER_PORT_CONTAINER`=adminer container port, e.g. `8080`
+Also, create a `.env` file under the `cjq-api` directory, and define the following environment vars: 
 
-
+- `APP_NAME`="API Provider pour Club de Judo de Quebec"
+- `HOST_NAME`=http://localhost
+- `PORT`=8001
+- `SWAGGER_FILE`="./swagger.json"
+- `LOG_FILE`="./logs/log.txt"
+- `DATA_FILE`=""
 
 Then, use the `manage` shell script to build the application.
 
