@@ -89,7 +89,7 @@ CREATE TABLE MEMBRE(
     telephoneResidence VARCHAR(10),
     telephoneCellulaire VARCHAR(10),
     courriel VARCHAR(64),
-    grade VARCHAR(7) NOT NULL, 
+    grade VARCHAR(8) NOT NULL, 
     datePromotionGrade DATE NOT NULL, 
     nomPersonneUrgence VARCHAR(64) NOT NULL, 
     telephoneResidenceUrgence VARCHAR(10) NOT NULL, 
@@ -115,3 +115,15 @@ CREATE TABLE INSCRIPTION(
     FOREIGN KEY (codeMembre)
         REFERENCES MEMBRE(codeMembre)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 AUTO_INCREMENT=1000;
+
+-- Contact creation 
+CREATE TABLE CONTACT(
+    codeSeqContact INT NOT NULL AUTO_INCREMENT, 
+    nom VARCHAR(32) NOT NULL, 
+    prenom VARCHAR(32) NOT NULL, 
+    courriel VARCHAR(64) NOT NULL,
+    telephone VARCHAR(10) NOT NULL,  -- format code area + numero, sans espaces ni symboles
+    messageContact VARCHAR(2048), 
+
+    PRIMARY KEY(codeSeqContact)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
