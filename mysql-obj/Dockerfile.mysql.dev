@@ -21,10 +21,10 @@
 #   limitations under the License.
 # ###
 FROM mysql
-ENV MYSQL_ROOT_PASSWORD: blitzkrieg
-WORKDIR /db
 
-COPY *.sql /db/
+COPY CJQ-DDL.sql    /docker-entrypoint-initdb.d/1.sql
+COPY CJQ-DML.sql    /docker-entrypoint-initdb.d/2.sql
+COPY CJQ-config.sql /docker-entrypoint-initdb.d/3.sql
 
 EXPOSE 3306
 EXPOSE 8080
