@@ -40,6 +40,8 @@ In order to build and run the Club de Judo de Quebec's application, you must hav
 
 First, you must have `node` installed in your system, along with its package manager, `npm`. This is essential, as node is the basis upon which all the application is built. 
 
+If you are running under `windows` you must install `Git Bash` and support for `git` in your enviroment, and execute all further instruction on `Git Bash`'s shell. The windows command line isn't enough to build and run the application environment. 
+
 You must also have `Docker` installed. Although it is possible to deploy the several pieces of software that compose this application separately, it would be work intensive and very error prone. `Docker` allows for a standardized deployment process and simplifies the instalation of prerequisite software, which can be installed directly on the container instead of on the host. The database, for instance, will be installed on the container and not on the host. 
 
 All the other prerequisites necessary for this application will be dealt with by `node` and `docker`. 
