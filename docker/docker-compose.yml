@@ -28,25 +28,25 @@ services:
         container_name: rest-api
         image: cjq-rest-api
         environment: 
-            - APP-PORT:8001
+            - API-PORT:${API_PORT}
         ports:
-            - 8001:8001
+            - ${API_PORT}:${API_PORT}
         networks: 
             - cjq-net
         depends_on:
-            - mysqldb
+            - db
         command: [
             "npm", "start"
         ]
 
-    # React JS frontend application
+    # Angular frontend application
     cjq-frontend:
         container_name: frontend
         image: cjq-frontend
         environment: 
-            - APP-PORT:8002
+            - APP-PORT:${APP_PORT}
         ports:
-            - 8002:8002
+            - ${APP_PORT}:${APP_PORT}
         networks: 
             - cjq-net
         volumes:
@@ -59,33 +59,35 @@ services:
         ]
 
     # MySQL node 
-    mysqldb:
+    db:
         container_name: MySQLDB
         image: cjq-mysql-db
         command: 
           --default-authentication-plugin=mysql_native_password --character-set-server=utf8 --collation-server=utf8_general_ci
         restart: always
         environment: 
-          MYSQL_DATABASE: dummy
-          MYSQL_ROOT_PASSWORD: blitzkrieg
-          # MYSQL_USER: julio
-          # MYSQL_PASSWORD: A123456
-          ports: 3307:3306
+            MYSQL_DATABASE: ${MYSQL_DATABASE}
+            MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+            ports: ${MYSQL_PORT_LOCAL}:${MYSQL_PORT_CONTAINER}
+        cap_add:
+            - SYS_NICE  
+        networks: 
+            - cjq-net
         volumes: 
-          # - ~/Development/mysql-container/data:/var/lib/mysql    # Use on *nix platform
-          - D:\Development\mysql-container\data:/var/lib/mysql     # Use on windows platform
-          # - "../mysql-obk/CJQ-config.sql:/docker-entrypoint-initdb.d/1.sql"
-          - "../mysql-obk/CJQ-DDL.sql:/docker-entrypoint-initdb.d/1.sql"
-          - "../mysql-obk/CJQ-DML.sql:/docker-entrypoint-initdb.d/2.sql"
+          - ${MYSQL_PERSISTENCE_LOCALDIR}:/var/lib/mysql
+          #- "../mysql-obk/CJQ-confi g.sql:/docker-entrypoint-initdb.d/1.sql"  # Copy SQL file to mysql entry point, for db config
 
-    adminer: 
-        container_name: AdminerKrypto
+    # SQL web client 
+    cjq-adminer: 
+        container_name: AdminerCJQ
         image: adminer
         restart: always
+        networks: 
+            - cjq-net
         ports: 
-          - 8888:8080
+          - ${ADMINER_PORT_LOCAL}:${ADMINER_PORT_CONTAINER}
         depends_on:
-            - mysqldb
+            - db
 
 networks:
     cjq-net:
