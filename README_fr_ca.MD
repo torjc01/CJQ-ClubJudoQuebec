@@ -21,3 +21,10 @@ Le club veut une page d'accueil à partir de laquelle les visiteurs pourront cho
 * **Compétition:** calendrier des compétitions, résultats et classements; 
 * **Équipement:** liste du matériel, prix, achat en ligne; 
 * **Gestion:** sert à la mise à jour des classements, inscriptions des équipes, etc, uniquement accessible aux gestionnaires du site. 
+
+
+## API Reference
+
+The API documentation for the project is available at the address [Swagger OpenAPI](http://localhost:8001/api-docs/).
+
+La documentation des APIs du projet sont disponibles à l'adresse du [Swagger OpenAPI](http://localhost:8001/api-docs/). 

@@ -2,7 +2,7 @@
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)
 
 ---
-[Version Française](README_fr_CA.md)
+[Version Française](README_fr_ca.md)
 # CJQ-Club de Judo de Quebec
 
 <p align="center">
@@ -135,8 +135,6 @@ Show what the library does as concisely as possible, developers should be able t
 
 The API documentation for the project is available at the address [Swagger OpenAPI](http://localhost:8001/api-docs/).
 
-La documentation des APIs du projet sont disponibles à l'adresse du [Swagger OpenAPI](http://localhost:8001/api-docs/). 
-
 Depending on the size of the project, if it is small and simple enough the reference docs can be added to the README. For medium size to larger projects it is important to at least provide a link to where the API reference docs live.
 
 The data model is simplified for the RAC's requisites, yet it is still complex enough to demonstrate knowledge on dealing with data modelling and database programming / administration. 
@@ -154,13 +152,13 @@ The model has 7 basic tables, described below:
 Below, you will find the logical and physical data model diagrams for this database. 
 
 <p align="center">
+    <p><b>Logical data model</b></p>
     <img src="./assets/images/cjqLogicalDatamodel.png"width="800" />
-    <p align="center"><b>Logical data model</b></p>
 </p>
 
 <p align="center">
+    <p><b>Physical data model</b></p>
     <img src="./assets/images/cjqPhysicalDatamodel.png"width="800" />
-    <p align="center"><b>Physical data model</b></p>
 </p>
 
 
