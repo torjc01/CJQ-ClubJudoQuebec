@@ -26,7 +26,7 @@ DROP USER IF EXISTS 'cjqadmin'@'%';
 
 CREATE USER 'cjqadmin'@'%' IDENTIFIED BY '123456'; 
 
-GRANT ALL PRIVILEGES ON *.* TO 'cjqadmin'@'%'; 
+GRANT ALL PRIVILEGES ON CJQ.* TO 'cjqadmin'@'%'; 
 
 FLUSH PRIVILEGES; 
 
@@ -37,7 +37,7 @@ DROP USER IF EXISTS 'cjqweb'@'%';
 
 CREATE USER 'cjqweb'@'%' IDENTIFIED BY '123456'; 
 
-GRANT ALL PRIVILEGES ON *.* TO 'cjqweb'@'%'; 
+GRANT ALL PRIVILEGES ON CJQ.* TO 'cjqweb'@'%'; 
 
 FLUSH PRIVILEGES; 
 
@@ -45,7 +45,10 @@ SHOW GRANTS FOR 'cjqweb'@'%';
 
 
 -- Fait display des usagers qui viennent d'être créés. 
-select host, user from mysql.user; 
+SELECT host, user FROM mysql.user; 
+
+-- Fait display des tables créés dans l'application
+SHOW TABLES;
 
 -- Suppression d'un usager de la BD. 
 -- DROP USER 'olduser'@'localhost'; 

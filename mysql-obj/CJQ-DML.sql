@@ -22,18 +22,22 @@
 --  See the License for the specific language governing permissions and
 --  limitations under the License.
 -- ###
+USE CJQ;
 
 --  Insertion de valeurs dans la table MODALITE
 INSERT INTO MODALITE(nomModalite) VALUES ('Poussin');
 INSERT INTO MODALITE(nomModalite) VALUES ('Juvenile');
 INSERT INTO MODALITE(nomModalite) VALUES ('Junior');
 INSERT INTO MODALITE(nomModalite) VALUES ('Senior');
-INSERT INTO MODALITE(nomModalite) VALUES ('Compétition');
+INSERT INTO MODALITE(nomModalite) VALUES ('Competition');
 INSERT INTO MODALITE(nomModalite) VALUES ('Kata');
 
 --  Insertion de valeurs dans la table HORAIRE
 INSERT INTO HORAIRE(heureDebut, heureFin, nomHoraire) VALUES ('090000', '110000', 'Matin'); 
 INSERT INTO HORAIRE(heureDebut, heureFin, nomHoraire) VALUES ('120000', '130000', 'Midi'); 
-INSERT INTO HORAIRE(heureDebut, heureFin, nomHoraire) VALUES ('140000', '160000', 'Après-midi'); 
+INSERT INTO HORAIRE(heureDebut, heureFin, nomHoraire) VALUES ('140000', '160000', 'Apres-midi'); 
 INSERT INTO HORAIRE(heureDebut, heureFin, nomHoraire) VALUES ('190000', '210000', 'Soir'); 
 
+-- Display data created
+SELECT * from MODALITE; 
+SELECT * from HORAIRE;

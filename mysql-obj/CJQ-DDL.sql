@@ -20,19 +20,21 @@
 --  limitations under the License.
 -- ###
 
+-- Dartabase creation
 DROP DATABASE IF EXISTS CJQ; 
 CREATE DATABASE CJQ CHARACTER SET utf8 COLLATE utf8_general_ci;
-
 USE CJQ; 
 
+-- Modalite creation 
 CREATE TABLE MODALITE(
     codeModalite    INT(2)      NOT NULL AUTO_INCREMENT, 
     nomModalite     VARCHAR(16) NOT NULL, 
 
     PRIMARY KEY(codeModalite),
     INDEX(nomModalite)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8; 
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4; 
 
+-- Horaire creation
 CREATE TABLE HORAIRE(
     codeHoraire INT(2)      NOT NULL AUTO_INCREMENT, 
     heureDebut  TIME        NOT NULL, 
@@ -41,8 +43,9 @@ CREATE TABLE HORAIRE(
 
     PRIMARY KEY(codeHoraire), 
     INDEX(nomHoraire)
-)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+)ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+-- Entraineur creation
 CREATE TABLE ENTRAINEUR(
     codeEntraineur INT(2) NOT NULL AUTO_INCREMENT, 
     nom VARCHAR(32) NOT NULL, 
@@ -52,8 +55,9 @@ CREATE TABLE ENTRAINEUR(
 
     PRIMARY KEY(codeEntraineur), 
     INDEX(nom, prenom)
-)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+)ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+-- Cours creation
 CREATE TABLE COURS(
     codeCours INT(2) NOT NULL AUTO_INCREMENT, 
     codeHoraire INT(2) NOT NULL, 
@@ -68,8 +72,9 @@ CREATE TABLE COURS(
         REFERENCES MODALITE(codeModalite), 
     FOREIGN KEY(codeEntraineur)
         REFERENCES ENTRAINEUR(codeEntraineur)
-)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+)ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+-- Membre creation 
 CREATE TABLE MEMBRE(
     codeMembre INT NOT NULL AUTO_INCREMENT, 
     nom VARCHAR(32) NOT NULL, 
@@ -93,8 +98,9 @@ CREATE TABLE MEMBRE(
 
     PRIMARY KEY(codeMembre), 
     INDEX(nom, prenom)
-)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+)ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+-- Inscription creation
 CREATE TABLE INSCRIPTION( 
     codeInscription INT NOT NULL AUTO_INCREMENT, 
     dateInscription DATE NOT NULL,
@@ -108,5 +114,4 @@ CREATE TABLE INSCRIPTION(
         REFERENCES COURS(codeCours), 
     FOREIGN KEY (codeMembre)
         REFERENCES MEMBRE(codeMembre)
-)ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=2021001;
-
+)ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 AUTO_INCREMENT=1000;
