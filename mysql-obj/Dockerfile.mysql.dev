@@ -22,6 +22,8 @@
 # ###
 FROM mysql
 
+ENV LANG=C.UTF-8
+
 COPY CJQ-DDL.sql    /docker-entrypoint-initdb.d/1.sql
 COPY CJQ-DML.sql    /docker-entrypoint-initdb.d/2.sql
 COPY CJQ-config.sql /docker-entrypoint-initdb.d/3.sql
