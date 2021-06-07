@@ -63,9 +63,11 @@ CREATE TABLE COURS(
     codeHoraire     INT NOT NULL, 
     codeModalite    INT NOT NULL, 
     codeEntraineur  INT NOT NULL, 
+    salleDojo       CHAR(16) NOT NULL,
 
     PRIMARY KEY (codeCours),
     INDEX(codeCours, codeHoraire), 
+
     FOREIGN KEY(codeHoraire)
         REFERENCES HORAIRE(codeHoraire), 
     FOREIGN KEY(codeModalite)
@@ -112,6 +114,7 @@ CREATE TABLE INSCRIPTION(
     PRIMARY KEY(codeInscription), 
     INDEX(codeCours),
     INDEX(codeMembre),
+
     FOREIGN KEY(codeCours)
         REFERENCES COURS(codeCours), 
     FOREIGN KEY (codeMembre)
@@ -133,6 +136,7 @@ CREATE TABLE CONTACT(
     PRIMARY KEY(codeSeqContact), 
     INDEX(indicateurEtatMessage),
     INDEX(codeMembre),
+    
     FOREIGN KEY(codeMembre)
         REFERENCES MEMBRE(codeMembre)
 
@@ -148,7 +152,8 @@ CREATE VIEW V_NOW AS SELECT CURRENT_TIME;
 CREATE VIEW V_COURS_EVENEMENT AS 
 SELECT  A.codeModalite, A.nomModalite, 
         B.codeHoraire, B.heureDebut, B.heureFin, B.nomHoraire, 
-        C.codeEntraineur, C.nom, C.prenom, C.registreFederation, C.gradeDan
+        C.codeEntraineur, C.nom, C.prenom, C.registreFederation, C.gradeDan,
+        D.salleDojo
 FROM    MODALITE A, 
         HORAIRE B, 
         ENTRAINEUR C,

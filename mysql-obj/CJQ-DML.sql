@@ -55,11 +55,18 @@ COMMIT;
 INSERT INTO ENTRAINEUR(nom, prenom, registreFederation, gradeDan)
     VALUES 
     ('Miúra', "Takaôki", 'IJF-23423423-CA', 5);
+INSERT INTO ENTRAINEUR(nom, prenom, registreFederation, gradeDan)
+    VALUES 
+    ('Ozawa', "Keiji", 'IJF-8764654429-CA', 7);
 COMMIT; 
 
 -- Insertion de valeurs dans la table COURS
-INSERT INTO COURS(codeHoraire, codeModalite, codeEntraineur)
-    VALUES (1, 1, 1); 
+INSERT INTO COURS(codeHoraire, codeModalite, codeEntraineur, salleDojo)
+    VALUES (1, 1, 1, 'Dojo Kyoto'); 
+INSERT INTO COURS(codeHoraire, codeModalite, codeEntraineur, salleDojo)
+    VALUES (4, 5, 2, 'Dojo Tokyo'); 
+INSERT INTO COURS(codeHoraire, codeModalite, codeEntraineur, salleDojo)
+    VALUES (2, 3, 1, 'Dojo Tokyo'); 
 COMMIT; 
 
 --  Insertion de valeurs dans la table INSCRIPTION
