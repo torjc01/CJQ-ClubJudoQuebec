@@ -4,7 +4,7 @@
 ### Définition des variables globales
 
 @hostname = http://localhost:8001/api
-@id = 1
+@id = 551454
 ####
 #### Get list de contacts reçus 
 #### 
@@ -39,22 +39,61 @@ Content-Type: application/json
     "codeMembre": "1"
 }
 
+#### ************************************************************************************************
+####  Users 
+#### ************************************************************************************************
+
 ####
-#### Creer un nouveau contact
+#### GET /users - Lists all users
+#### 
+GET {{hostname}}/users HTTP/1.1
+X-API-Key: no-key-at-all
+Content-Type: application/json
+
+####
+#### GET /users/:id - get a specific user 
+#### 
+GET {{hostname}}/users/{{id}} HTTP/1.1
+X-API-Key: no-key-at-all
+Content-Type: application/json
+
+####
+#### POST /users - creates a new user
 ####
 POST {{hostname}}/users HTTP/1.1
 X-API-Key: no-key-at-all
 Content-Type: application/json
 
 {
-    "codeSeqContact": "1", 
+    "codeUser": "1", 
     "nom": "Torres dos Santos", 
     "prenom": "Julio Cesar", 
     "courriel": "juliozohar@gmail.com", 
-    "telephone": "5813077882", 
-    "messageContact": "Why don't you just fuck off???", 
-    "dateReceptionMessage": "20210607", 
-    "indicateurEtatMessage": "R", 
-    "tokenResponse": "as138haljsbd293bqldb923qlwdb293dh3f24twvyj6ukjwq33==", 
-    "codeMembre": "1"
+    "codeMembre": "1", 
+    "motPasse": "adasdedeerf#asdlkjasdkljasdklasdklasdlkad==", 
+    "niveauPermission": "A"
 }
+
+####
+#### PATCH /users/:id - update the data for a specific user 
+#### 
+PATCH {{hostname}}/users/{{id}} HTTP/1.1
+X-API-Key: no-key-at-all
+Content-Type: application/json
+
+{
+    "codeUser": "1", 
+    "nom": "Torres", 
+    "prenom": "Julio ", 
+    "courriel": "juliozohar@gmail.com", 
+    "codeMembre": "1", 
+    "motPasse": "GSDFSDFSDFDFKLJ#ASDDGLKJASDHFLKJAHFKJAHSDF==", 
+    "niveauPermission": "B"
+}
+
+####
+#### DELETE /users/:id - remove a specific user 
+#### 
+DELETE {{hostname}}/users/{{id}} HTTP/1.1
+X-API-Key: no-key-at-all
+Content-Type: application/json

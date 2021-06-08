@@ -142,6 +142,28 @@ CREATE TABLE CONTACT(
 
 )ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+-- User
+CREATE TABLE USER(
+    codeUser INT NOT NULL AUTO_INCREMENT, 
+    nom CHAR(32) NOT NULL, 
+    prenom CHAR(32) NOT NULL, 
+    courriel CHAR(64) NOT NULL,
+    codeMembre INT, 
+    motPasse CHAR(64) NOT NULL, 
+    niveauPermission CHAR(8) NOT NULL,
+
+    PRIVATE KEY(codeUser),
+
+    FOREIGN KEY(codeMembre)
+        REFERENCES MEMBRE(codeMembre)
+
+)ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+
+-- ******************************************************************
+-- *****     VIEWS CREATION 
+-- ******************************************************************
+
 --  View current date
 CREATE VIEW V_DATE AS SELECT CURRENT_DATE; 
 

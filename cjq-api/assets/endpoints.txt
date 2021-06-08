@@ -1,0 +1,12 @@
+// GET /users - Lists all users                 200 / 404
+// GET /users/:id - get a specific user         200 / 404
+// POST /users - creates a new user             201
+// PATCH /users/:id - update the data for a specific user 200 / 304 
+// DELETE /users/:id - remove a specific user  
+
+// GET /contacts - Lists all contacts           200 / 404
+// GET /contacts/:id - get a specific contact   200 / 404
+// POST /contacts - creates a new contact       201
+// PATCH /contacts/:id - update the data for a specific contact 200 / 304 
+// DELETE /contacts/:id - remove a specific contact  200 / 404
+

@@ -35,15 +35,13 @@ let router      = express.Router();
 
 const swaggerDoc = require(swaggerFile);
 
+//const userController = require('./controllers/users');
 // Routes 
 const getApp        = require('./routes/getApp');
-const getContact    =  require('./routes/getContact');
-const getContacts   =  require('./routes/getContacts');
-
+const { getUsers, getUserById, createUser, patchUser, deleteUser }  = require('./routes/users');
+const { getContacts, getContactById, createContact, patchContact, deleteContact} = require('./routes/contacts');
 console.log('*'.repeat(80)); 
 console.log("0: > ", getApp); 
-console.log("1: > ", getContacts); 
-console.log("2: > ", getContact); 
 console.log('*'.repeat(80)); 
 
 app.use(express.json());                                                // Configure middleware de lecture de json
@@ -54,18 +52,63 @@ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDoc));     // Confi
 
 app.use('/api', router);                                                // Configure router pour que toutes les routes soient prefixées par /api/v1
 
+// Routing paths 
+
+
+// ***** ROOT PAGE *****
 router.route('/')
     .get(getApp);
+
+
+// ***** CONTACT *****
 
 router.route('/contacts')
     .get(getContacts); 
 
 router.route('/contacts/:id')
-    .get(getContact);
+    .get(getContactById);
 
+router.route('/contacts')
+    .post(createContact);
+
+router.route('/users/:id')
+    .patch(patchContact);
+    
+router.route('/users/:id')
+    .delete(deleteContact);
+
+// ***** USER *****    
+
+router.route('/users')
+    .get(getUsers);
+
+router.route('/users/:id')
+    .get(getUserById);
+
+router.route('/users')
+    .post(createUser);
+
+router.route('/users/:id')
+    .patch(patchUser);
+    
+router.route('/users/:id')
+    .delete(deleteUser);
+
+
+// **********************************************************
+// ***** Boilerplate for error treatment 
+// **********************************************************
+// Configure exception to the console
+app.use(errorHelper.logErrorToConsole); 
+// Configure exception to file
+app.use(errorHelper.logErrorsToFile); 
+// Configure client error handler 
+app.use(errorHelper.clientErrorHandler); 
+// Configure catch-all expception middleware last 
+app.use(errorHelper.errorHandler);
 
 // Créer serveur pour écouter la PORT 
 let server = app.listen(port, function(){
-    console.log(`${appName} exécute sur un Nodejs server ${hostname}:${port}/api`);
+    console.log(`${appName} exécute sur un Nodejs server ${hostname}:${port}/`);
     console.log(`Les documentations de l'API exécutent sur ${hostname}:${port}/api-docs`);
 });
