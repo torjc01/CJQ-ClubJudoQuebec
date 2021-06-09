@@ -37,8 +37,8 @@ async function maio(){
         host: 'smtp.gmail.com', 
         ignoreTLS: true,
         auth: {
-            user: 'kryptogarten@gmail.com', 
-            pass: 'Achtung@2021'
+            user: 
+            pass: 
         }
     });
 
