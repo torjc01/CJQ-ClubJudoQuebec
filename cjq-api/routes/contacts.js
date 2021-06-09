@@ -11,7 +11,7 @@ exports.getContactById = async(req, res) => {
 
 exports.createContact = async(req, res) => {
     console.log(`POST /contacts - creates a new contact`); 
-    await maio();
+    //await maio();
     res.status(201).send(`POST /contact - creates a new contact`); 
 }
 
@@ -27,6 +27,7 @@ exports.deleteContact = async(req, res) => {
     res.status(200).send(`DELETE /contacts/:id - update the data for a specific contact ${id}`); 
 }
 
+/*
 const nodemailer = require('nodemailer'); 
 
 async function maio(){
@@ -47,3 +48,4 @@ async function maio(){
     console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
 }
 maio().catch(console.error);
+*/

@@ -151,9 +151,7 @@ CREATE TABLE USER(
     codeMembre INT, 
     motPasse CHAR(64) NOT NULL, 
     niveauPermission CHAR(8) NOT NULL,
-
-    PRIVATE KEY(codeUser),
-
+    PRIMARY KEY(codeUser),
     FOREIGN KEY(codeMembre)
         REFERENCES MEMBRE(codeMembre)
 

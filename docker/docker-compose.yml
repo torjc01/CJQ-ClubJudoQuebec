@@ -40,23 +40,23 @@ services:
         ]
 
     # Angular frontend application
-    cjq-frontend:
-        container_name: FrontendCJQ
-        image: cjq-frontend
-        environment: 
-            - APP-PORT:${APP_PORT}
-        ports:
-            - ${APP_PORT}:${APP_PORT}
-        networks: 
-            - cjq-net
-        volumes:
-            - '../cjq-angular:/app'
-            - '/app/node_modules'
-        depends_on: 
-            - cjq-rest-api
-        command: [
-            "ng", "serve"
-        ]
+#   cjq-frontend:
+#        container_name: FrontendCJQ
+#        image: cjq-frontend
+#        environment: 
+#            - APP-PORT:${APP_PORT}
+#        ports:
+#            - ${APP_PORT}:${APP_PORT}
+#        networks: 
+#            - cjq-net
+#        volumes:
+#            - '../cjq-angular:/app'
+#            - '/app/node_modules'
+#        depends_on: 
+#            - cjq-rest-api
+#        command: [
+#            "ng", "serve"
+#        ]
 
     # MySQL node 
     db:

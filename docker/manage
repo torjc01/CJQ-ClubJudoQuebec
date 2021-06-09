@@ -151,10 +151,10 @@ EOF
 # Functions:
 # -----------------------------------------------------------------------------------------------------------------
 build(){
-  echo -e "\nBuilding cjq-frontend image..."
-  docker build \
-    -t 'cjq-frontend' \
-    -f '../cjq-angular/Dockerfile.frontend.dev' './../cjq-angular/'
+#  echo -e "\nBuilding cjq-frontend image..."
+#  docker build \
+#    -t 'cjq-frontend' \
+#    -f '../cjq-angular/Dockerfile.frontend.dev' './../cjq-angular/'
 
   echo -e "\nBuilding cjq-rest-api image..."
   docker build \
@@ -217,8 +217,8 @@ configureEnvironment() {
   export MYSQL_ROOT_PASSWORD=blitzkrieg
   export MYSQL_PORT_LOCAL=3306
   export MYSQL_PORT_CONTAINER=3307
-  # export MYSQL_PERSISTENCE_LOCALDIR=~/Development/mysql-container/data
-  export MYSQL_PERSISTENCE_LOCALDIR='D:\Development\mysql-container\data'
+  export MYSQL_PERSISTENCE_LOCALDIR=~/Development/mysql-container/data
+  # export MYSQL_PERSISTENCE_LOCALDIR='D:\Development\mysql-container\data'
   # export MYSQL_USER: julio
   # export MYSQL_PASSWORD: A123456
   export ADMINER_PORT_LOCAL=8888
