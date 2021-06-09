@@ -33,7 +33,13 @@ const nodemailer = require('nodemailer');
 async function maio(){
     let testAccount = await nodemailer.createTestAccount(); 
     let transporter = nodemailer.createTransport({
-        port: 25
+        port: 25, 
+        host: 'smtp.gmail.com', 
+        ignoreTLS: true,
+        auth: {
+            user: 'kryptogarten@gmail.com', 
+            pass: 'Achtung@2021'
+        }
     });
 
     let info = await transporter.sendMail({
