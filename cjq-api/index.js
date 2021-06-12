@@ -36,12 +36,12 @@ let router      = express.Router();
 const swaggerDoc = require(swaggerFile);
 
 //const userController = require('./controllers/users');
+//const getApp = require('./routes/getApp');
+
 // Routes 
 const getApp        = require('./routes/getApp');
 const { getUsers, getUserById, createUser, patchUser, deleteUser }  = require('./routes/users');
 const { getContacts, getContactById, createContact, patchContact, deleteContact} = require('./routes/contacts');
-console.log('*'.repeat(80)); 
-console.log("0: > ", getApp); 
 console.log('*'.repeat(80)); 
 
 app.use(express.json());                                                // Configure middleware de lecture de json
@@ -57,11 +57,10 @@ app.use('/api', router);                                                // Confi
 
 // ***** ROOT PAGE *****
 router.route('/')
-    .get(getApp);
+    .get(getApp); 
 
 
 // ***** CONTACT *****
-
 router.route('/contacts')
     .get(getContacts); 
 

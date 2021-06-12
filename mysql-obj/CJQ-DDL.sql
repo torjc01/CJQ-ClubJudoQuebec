@@ -145,9 +145,7 @@ CREATE TABLE CONTACT(
 -- User
 CREATE TABLE USER(
     codeUser INT NOT NULL AUTO_INCREMENT, 
-    nom CHAR(32) NOT NULL, 
-    prenom CHAR(32) NOT NULL, 
-    courriel CHAR(64) NOT NULL,
+    username CHAR(32) NOT NULL,
     codeMembre INT, 
     motPasse CHAR(64) NOT NULL, 
     niveauPermission CHAR(8) NOT NULL,

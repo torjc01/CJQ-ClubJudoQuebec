@@ -29,6 +29,8 @@ services:
         image: cjq-rest-api
         environment: 
             - API-PORT:${API_PORT}
+            # - MAILDEV_HOST:${MAILDEV_HOST}
+            # - MAILDEV_PORT:${MAILDEV_PORT}
         ports:
             - ${API_PORT}:${API_PORT}
         networks: 

@@ -227,9 +227,9 @@ configureEnvironment() {
   if [[ $OS = 'Windows' ]]; then 
     export MYSQL_PERSISTENCE_LOCALDIR='D:\Development\mysql-container\data'
   else
-    export MYSQL_PERSISTENCE_LOCALDIR=~/Development/mysql-container/data
+    export MYSQL_PERSISTENCE_LOCALDIR='~/Development/mysql-container/data'
   fi
-  echo "==============>>> " $MYSQL_PERSISTENCE_LOCALDIR
+  
   export MYSQL_DATABASE=CJQ
   export MYSQL_ROOT_PASSWORD=changemenow
   export MYSQL_PORT_LOCAL=3306
@@ -238,6 +238,10 @@ configureEnvironment() {
   # Adminer environment vars 
   export ADMINER_PORT_LOCAL=8888
   export ADMINER_PORT_CONTAINER=8080
+
+  # Maildev 
+  export MAILDEV_HOST=maildev
+  export MAILDEV_PORT=7050
 }
 
 getInputParams() {
