@@ -74,7 +74,11 @@ Open the file `./docker/manage`, find the function `configureEnvironment()` and 
 
 - `ADMINER_PORT_LOCAL`: adminer local machine port, e.g. `8888`
 
-0 `ADMINER_PORT_CONTAINER`=adminer container port, e.g. `8080`
+- `ADMINER_PORT_CONTAINER`=adminer container port, e.g. `8080`
+
+- `MAILDEV_HOST`=maildev host, e.g. `maildev`
+
+- `MAILDEV_PORT`=maildev listening port, e.g. `7050`
 
 Also, create a `.env` file under the `cjq-api` directory, and define the following environment vars: 
 
@@ -115,6 +119,8 @@ Once the application's containers are up, you will find the following endpoints 
 - **The frontend** (http://localhost:8002)
 
 - **The database admin page** (http://localhost:8888)
+
+- **The mail server** (http://localhost:7050)
 
 To stop the application, and keep the containers ready on your docker, simply make a `stop`: 
 
@@ -213,6 +219,8 @@ Nous utilisons [SemVer](http://semver.org/) pour faire le versionement. Pour les
 * **Julio Cesar Torres** - *Initial work* - [torjc01](https://github.com/torjc01)
 
 See also the list of [contributors](https://github.com/torjc01/CJQ-ClubJudoQuebec/contributors) who participated in this project.
+
+[https://developercertificate.org/](https://developercertificate.org/)
 
 Voyez aussi la liste de [contributeurs](https://github.com/torjc01/CJQ-ClubJudoQuebec/contributors) qui ont participé à ce projet. 
 

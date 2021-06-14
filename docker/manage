@@ -26,6 +26,15 @@
 #   limitations under the License.
 # ###
 
+# Define a var for the current OS
+if [[ $OSTYPE = 'darwin'* ]]; then
+    export OS="Mac OS"
+elif [[ $OSTYPE = 'linux-gnu' ]]; then 
+    export OS="Linux"
+else
+    export OS="Windows"
+fi
+
 export MSYS_NO_PATHCONV=1
 export DOCKERHOST=${APPLICATION_URL-$(docker run --rm --net=host eclipse/che-ip)}
 set -e
@@ -151,11 +160,17 @@ EOF
 # Functions:
 # -----------------------------------------------------------------------------------------------------------------
 build(){
-  echo -e "\nBuilding cjq-frontend image..."
-  docker build \
-    -t 'cjq-frontend' \
-    -f '../cjq-angular/Dockerfile.frontend.dev' './../cjq-angular/'
+#  echo -e "\nBuilding cjq-frontend image..."
+#  docker build \
+#    -t 'cjq-frontend' \
+#    -f '../cjq-angular/Dockerfile.frontend.dev' './../cjq-angular/'
 
+  echo -e "\nBuilding cjq-rest-api image..."
+  docker build \
+    -t 'cjq-rest-api' \
+    -f '../cjq-api/Dockerfile.api.dev' './../cjq-api/'
+}
+build-api(){
   echo -e "\nBuilding cjq-rest-api image..."
   docker build \
     -t 'cjq-rest-api' \
@@ -204,19 +219,29 @@ configureEnvironment() {
   export DEBUG=${DEBUG}
   export LOG_LEVEL=${LOG_LEVEL:-"DEBUG"}
   
-  # Global Environment variables 
+  # Global environment vars
   export API_PORT=8001
   export APP_PORT=9876
-  export MYSQL_DATABASE=dummy
-  export MYSQL_ROOT_PASSWORD=blitzkrieg
+
+  # MySQL environment vars 
+  if [[ $OS = 'Windows' ]]; then 
+    export MYSQL_PERSISTENCE_LOCALDIR='D:\Development\mysql-container\data'
+  else
+    export MYSQL_PERSISTENCE_LOCALDIR='~/Development/mysql-container/data'
+  fi
+  
+  export MYSQL_DATABASE=CJQ
+  export MYSQL_ROOT_PASSWORD=changemenow
   export MYSQL_PORT_LOCAL=3306
   export MYSQL_PORT_CONTAINER=3307
-  # export MYSQL_PERSISTENCE_LOCALDIR=~/Development/mysql-container/data
-  export MYSQL_PERSISTENCE_LOCALDIR='D:\Development\mysql-container\data'
-  # export MYSQL_USER: julio
-  # export MYSQL_PASSWORD: A123456
+  
+  # Adminer environment vars 
   export ADMINER_PORT_LOCAL=8888
   export ADMINER_PORT_CONTAINER=8080
+
+  # Maildev 
+  export MAILDEV_HOST=maildev
+  export MAILDEV_PORT=7050
 }
 
 getInputParams() {
@@ -323,6 +348,11 @@ case "${COMMAND}" in
     _startupParams=$(getStartupParams $@)
     configureEnvironment $@
     build-db ${_startupParams}
+    ;;
+  build-api)
+    _startupParams=$(getStartupParams $@)
+    configureEnvironment $@
+    build-api ${_startupParams}
     ;;
   start|start|up)
     configureEnvironment

@@ -107,7 +107,7 @@ Temporary Items
 
 ## Project specific
 **/realm-export-docker.json
-**/.env
+# **/.env
 
 node_modules
 bower_components
@@ -117,6 +117,6 @@ package-lock.json
 **/logs
 log.txt
 
-**/boilerplate
+# **/boilerplate
 
 **/mysql-data
