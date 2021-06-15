@@ -160,10 +160,10 @@ EOF
 # Functions:
 # -----------------------------------------------------------------------------------------------------------------
 build(){
-#  echo -e "\nBuilding cjq-frontend image..."
-#  docker build \
-#    -t 'cjq-frontend' \
-#    -f '../cjq-angular/Dockerfile.frontend.dev' './../cjq-angular/'
+  echo -e "\nBuilding cjq-frontend image..."
+  docker build \
+    -t 'cjq-frontend' \
+    -f '../cjq-frontend/Dockerfile.frontend.dev' './../cjq-frontend/'
 
   echo -e "\nBuilding cjq-rest-api image..."
   docker build \
@@ -221,7 +221,7 @@ configureEnvironment() {
   
   # Global environment vars
   export API_PORT=8001
-  export APP_PORT=9876
+  export APP_PORT=4200
 
   # MySQL environment vars 
   if [[ $OS = 'Windows' ]]; then 

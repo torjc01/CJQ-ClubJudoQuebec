@@ -1,8 +1,8 @@
 /*
-* Filename: index.js
-* Fichier principal de l'application frontend du CJQ. 
+* Filename: gradeDan.js
+* An utilitary enumeration for dan grades, as of stated by the Kodokan Institute. 
 * Author: Julio-Cesar Torres <juliozohar@gmail.com> (@juliozohar)
-* Date: 2021-06-03
+* Date: 2021-06-05
 *
 *   Copyright 2021 Kryptogarten LLC
 *
@@ -18,3 +18,18 @@
 *   See the License for the specific language governing permissions and
 *   limitations under the License.
 */
+const dan = {
+    1: "Shodan", 
+    2: "Nidan", 
+    3: "Sandan", 
+    4: "Yondan", 
+    5: "Godan", 
+    6: "Rokudan", 
+    7: "Sichidan", 
+    8: "Hachidan", 
+    9: "Kudan", 
+    10: "Judan"
+}
+Object.freeze(dan); 
+
+module.exports = dan;
