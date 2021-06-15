@@ -225,7 +225,7 @@ configureEnvironment() {
 
   # MySQL environment vars 
   if [[ $OS = 'Windows' ]]; then 
-    export MYSQL_PERSISTENCE_LOCALDIR='D:\Development\mysql-container\data'
+    export MYSQL_PERSISTENCE_LOCALDIR='C:\Development\mysql-container\data'
   else
     export MYSQL_PERSISTENCE_LOCALDIR='~/Development/mysql-container/data'
   fi
