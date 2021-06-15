@@ -28,11 +28,10 @@ import { Component } from '@angular/core';
     </div>
     <footer class="footer mt-auto py-3 bg-light" style="margin-top:100px">
       <div class="container">
-
         <span class="text-muted">
           <div class="text-center">@juliozohar</div>
           <div class="text-center">
-            <a href="http://github.com/torjc01">github.com/torjc01</a>
+            &copy; 2021  <a href="http://github.com/torjc01">github.com/torjc01</a>
           </div>
         </span>
 
