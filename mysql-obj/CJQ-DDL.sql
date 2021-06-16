@@ -127,7 +127,7 @@ CREATE TABLE CONTACT(
     nom CHAR(32) NOT NULL, 
     prenom CHAR(32) NOT NULL, 
     courriel CHAR(64) NOT NULL,
-    telephone CHAR(10) NOT NULL,  -- format code area + numero, sans espaces ni symboles
+    telephone CHAR(10),  -- format code area + numero, sans espaces ni symboles
     messageContact VARCHAR(2048), 
     indicateurEtatMessage CHAR(1), 
     tokenReponse CHAR(64), 
