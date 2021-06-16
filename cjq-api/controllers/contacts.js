@@ -1,21 +1,32 @@
 let mysql = require('mysql'); 
-let { database, host, user, password } = require('../helpers/mysql.config');
+let { database, host, user, password, port } = require('../helpers/mysql.config');
 
 let CONN_LIMIT = 5;
+
+console.log("CREATE POOL ")
+console.log(`host: ${host}`); 
+console.log(`port: ${port}`); 
+console.log(`database: ${database}`);
+console.log(`user: ${user}`); 
+console.log(`password: ${password}`);
 
 let pool = mysql.createPool({
     connectionLimit: CONN_LIMIT, 
     host: host, 
+    port: port,
     user: user, 
     password: password, 
     database: database
 });
+
+
 
 /*
 *
 */
 exports.getContacts = (req, res) => {
     console.log(`GET /users - Lists all contacts`); 
+    execQuery(getContactsSQL); 
     res.status(200).send(`GET /contacts - Lists all contacts`); 
 };
 
@@ -57,21 +68,29 @@ exports.deleteContact = async(req, res) => {
     res.status(200).send(`DELETE /contacts/:id - update the data for a specific contact ${id}`); 
 }
 
+let getContactsSQL = "SELECT * FROM CONTACT"; 
+
 /*
 *
 */
-function execQuery(){
+function execQuery(sql){
     pool.getConnection(function(err, connection){
         if(err){
-            return console.err(err.message);
+            return console.error(err.message);
         }
         // execute query
-        
+        connection.query(sql, (err, results, fields)=> {
+            if(err){
+                return console.error(err.message); 
+            }
+            console.log(results); 
+        })
 
         // release the connection to the pool 
         connection.release(); 
     });
 }
+
 
 
 /*

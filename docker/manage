@@ -232,8 +232,8 @@ configureEnvironment() {
   
   export MYSQL_DATABASE=CJQ
   export MYSQL_ROOT_PASSWORD=changemenow
-  export MYSQL_PORT_LOCAL=3306
-  export MYSQL_PORT_CONTAINER=3307
+  # export MYSQL_PORT_LOCAL=3306
+  # export MYSQL_PORT_CONTAINER=3307
   
   # Adminer environment vars 
   export ADMINER_PORT_LOCAL=8888

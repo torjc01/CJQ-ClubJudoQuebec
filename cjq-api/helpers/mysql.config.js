@@ -1,8 +1,9 @@
 const dotenv  = require('dotenv').config();
 
 module.exports  = {
-    database    : process.env.MYSQL_DATABASE,
-    host        : process.env.MYSQL_HOST,
-    user        : process.env.MYSQL_USER,
-    password    : process.env.MYSQL_PASSWORD
+    database    : "CJQ", //process.env.MYSQL_DATABASE,
+    host        : "localhost", // process.env.MYSQL_HOST,
+    port        : "3306", // process.env.MYSQL_PORT_LOCAL,
+    user        : "root", // process.env.MYSQL_USER,
+    password    : "changemenow", // process.env.MYSQL_PASSWORD
 };

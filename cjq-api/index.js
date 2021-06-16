@@ -39,9 +39,9 @@ const swaggerDoc = require(swaggerFile);
 //const getApp = require('./routes/getApp');
 
 // Routes 
-const getApp        = require('./routes/getApp');
-const { getUsers, getUserById, createUser, patchUser, deleteUser }  = require('./routes/users');
-const { getContacts, getContactById, createContact, patchContact, deleteContact} = require('./routes/contacts');
+const getApp        = require('./controllers/getApp');
+const { getUsers, getUserById, createUser, patchUser, deleteUser }  = require('./controllers/users');
+const { getContacts, getContactById, createContact, patchContact, deleteContact} = require('./controllers/contacts');
 console.log('*'.repeat(80)); 
 
 app.use(express.json());                                                // Configure middleware de lecture de json

@@ -50,6 +50,7 @@ services:
             - MYSQL_HOST:"localhost"
             - MYSQL_USER:"cjqweb"
             - MYSQL_PASSWORD:"123456"
+            - MYSQL_PORT_LOCAL:""
         ports:
             - "4200:4200"
         networks: 
@@ -69,8 +70,15 @@ services:
         restart: always
         environment: 
             MYSQL_DATABASE: ${MYSQL_DATABASE}
+            # MYSQL_ALLOW_EMPTY_PASSWORD: ok
             MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
-            ports: ${MYSQL_PORT_LOCAL}:${MYSQL_PORT_CONTAINER}
+            MYSQL_USER: cjqweb
+            MYSQL_PASSWORD: 123456
+            # MYSQL_ROOT_HOST: '%'
+        ports: 
+            - "3306:3306"
+        expose: 
+            - "3306"
         cap_add:
             - SYS_NICE  
         networks: 
@@ -101,3 +109,4 @@ services:
 
 networks:
     cjq-net:
+        driver: bridge
