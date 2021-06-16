@@ -1,20 +1,27 @@
-exports.createUser = (req, res, next) => {
-    res.json({message: "POST /users - creates a new user "});
-    next();
+exports.getUsers = async(req, res) => {
+    console.log(`AAA GET /users - Lists all users`); 
+    res.status(200).send(`GET /users - Lists all users`); 
 }
 
-exports.getUser = async (req, res) => {
-    res.send({message: "GET /users - Lists all users "});
+exports.getUserById = async(req, res) => {
+    let id = req.params.id; 
+    console.log(`AAA GET /users/:id - get a specific user ${id}`); 
+    res.status(200).send(`GET /users/:id - get a specific user ${id}`); 
 }
 
-exports.getUserById= async(req, res) => {
-    res.send({message: "GET /users/:id - get a specific user "});
+exports.createUser = async(req, res) => {
+    console.log(`AAA POST /users - creates a new user`); 
+    res.status(201).send(`POST /users - creates a new user`); 
 }
 
-exports.patchUser = (req, res, next) => {
-    res.json({message: "PATCH /users/:id"});
+exports.patchUser = async(req, res) => {
+    let id = req.params.id; 
+    console.log(`AAA PATCH /users/:id - update the data for a specific user ${id}`); 
+    res.status(200).send(`PATCH /users/:id - update the data for a specific user ${id}`); 
 }
 
-exports.deleteUser = (req, res, next) => {
-    res.json({message: "DELETE /users/:id"});
+exports.deleteUser = async(req, res) => {
+    let id = req.params.id; 
+    console.log(`AAA DELETE /users/:id - update the data for a specific user ${id}`); 
+    res.status(200).send(`DELETE /users/:id - update the data for a specific user ${id}`); 
 }
