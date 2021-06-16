@@ -45,6 +45,11 @@ services:
     cjq-frontend:
         container_name: FrontendCJQ
         image: cjq-frontend
+        environment: 
+            - MYSQL_DATABASE:"CJQ"
+            - MYSQL_HOST:"localhost"
+            - MYSQL_USER:"cjqweb"
+            - MYSQL_PASSWORD:"123456"
         ports:
             - "4200:4200"
         networks: 
