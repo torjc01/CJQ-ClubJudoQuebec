@@ -1,9 +1,9 @@
-let mysql = require('mysql'); 
-let { database, host, user, password, port } = require('../helpers/mysql.config');
 let contacts = require('../models/Contact');
 
+/*
+let mysql = require('mysql'); 
+let { database, host, user, password, port } = require('../helpers/mysql.config');
 let CONN_LIMIT = 5;
-
 console.log("CREATE POOL ")
 console.log(`host: ${host}`); 
 console.log(`port: ${port}`); 
@@ -19,15 +19,15 @@ let pool = mysql.createPool({
     password: password, 
     database: database
 });
+*/
 
 /*
 *
 */
 exports.getContacts = async (req, res) => {
     console.log(`GET /users - Lists all contacts`); 
-    let tiguidou = contacts.getAll; 
-    console.log("AQUI!!!! ", tiguidou);
-    res.status(200).send(`GET /contacts - Lists all contacts ${tiguidou}`); 
+    let tiguidou = contacts.getAll(); 
+    res.status(200).send(`GET /contacts - Lists all contacts `); 
 };
 
 /*
@@ -68,11 +68,11 @@ exports.deleteContact = async(req, res) => {
     res.status(200).send(`DELETE /contacts/:id - update the data for a specific contact ${id}`); 
 }
 
-let getContactsSQL = "SELECT * FROM CONTACT"; 
+
 
 /*
 *
-*/
+let getContactsSQL = "SELECT * FROM CONTACT"; 
 async function execQuery(sql, data){
     pool.getConnection(function(err, connection){
         if(err){
@@ -94,9 +94,7 @@ async function execQuery(sql, data){
 
 
 
-/*
-*
-*/
+
 function endPool(){
     pool.end(function(err){
         if(err){
@@ -105,3 +103,5 @@ function endPool(){
         // close all connections
     });
 }
+*
+*/
