@@ -168,6 +168,22 @@ Below, you will find the logical and physical data model diagrams for this datab
 </p>
 
 
+<p><b>Access to the database</b></p>
+
+To access the database administration tool (`Adminer`), access its address and log in using the following information, valid for a development environemt: 
+
+- `System: MySQL`
+- `Server: db`
+- `Username: cjqweb`
+- `Password: 123456`
+- `Database: CJQ`
+
+Please note that these values are case-sensitive. 
+<p>
+<img src="./assets/images/adminerLogin.png"width="800" />
+</p>
+
+
 ## Running the tests
 
 Explain how to run the automated tests for this system

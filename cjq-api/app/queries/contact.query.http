@@ -1,0 +1,78 @@
+##############################################################
+# Requetes http pour le test de l'API
+##############################################################
+### Définition des variables globales
+
+@hostname = http://localhost:8001
+
+#### 
+#### ###########################################################################
+####      C  O  N  T  A  C  T 
+#### ###########################################################################
+#### 
+@codeContact = 3
+####
+#### Get list de contacts reçus 
+#### 
+GET {{hostname}}/contacts HTTP/1.1
+X-API-Key: no-key-at-all
+Content-Type: application/json
+
+####
+#### Get list de contacts reçus 
+#### 
+GET {{hostname}}/contacts/{{codeContact}} HTTP/1.1
+X-API-Key: no-key-at-all
+Content-Type: application/json
+
+####
+#### Creer un nouveau contact
+####
+POST {{hostname}}/contacts HTTP/1.1
+X-API-Key: no-key-at-all
+Content-Type: application/json
+
+{
+    "nom": "Antognolli",
+    "prenom" : "Bruno",
+    "courriel": "bruno@gmail.com",
+    "telephone": "418332656",
+    "messageContact": "Internet, Web, and mobile applications that provide security, but also anonymity of users, are gaining increasing interest and importance. Examples of such new applications are various innovative payment systems, digital notaries, electronic voting, sharing of sensitive documents, electronic auctions, medical applications, and many others. The common characteristic of these applications is that they all require anonymity of users and their transactions. In addition to their anonymity, user identifiers, data, and transactions handled by those applications also require standard security services, such as identification, authentication, and authorization of users, data confidentiality, data integrity, sender’s/receiver’s authenticity, and non-repudiation of transactions. Providing these security services in combination with anonymity is especially challenging, because all of them require explicit user identification and authentication.",
+    "dateReceptionMessage": "20210615",
+    "indicateurEtatMessage": "B",
+    "tokenReponse": "cpm22mas238ysfdlkhfo84y89y13",
+    "codeMembre": null
+}
+
+####
+#### Update un nouveau contact
+####
+PATCH {{hostname}}/contacts/{{{{codeContact}}}} HTTP/1.1
+X-API-Key: no-key-at-all
+Content-Type: application/json
+
+{
+    "nom": "Reis",
+    "prenom" : "Nando",
+    "courriel": "nando@titas.com",
+    "telephone": "6112345678",
+    "messageContact": "Enquanto houver sol, ainda haverá, quando não houver caminho... ",
+    "dateReceptionMessage": "20210618",
+    "indicateurEtatMessage": "Z",
+    "tokenReponse": "reposnde ai",
+    "codeMembre": 1
+}
+
+####
+#### Delete un contact
+####
+DELETE {{hostname}}/contacts/{{codeContact}} HTTP/1.1
+X-API-Key: no-key-at-all
+Content-Type: application/json
+
+####
+#### Delete tous les contacts
+####
+DELETE {{hostname}}/contacts HTTP/1.1
+X-API-Key: no-key-at-all
+Content-Type: application/json

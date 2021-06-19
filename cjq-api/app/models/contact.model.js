@@ -6,6 +6,7 @@ const Contact = function(contact) {
     this.courriel               = contact.courriel; 
     this.telephone              = contact.telephone; 
     this.messageContact         = contact.messageContact; 
+    this.dateReceptionMessage   = contact.dateReceptionMessage;
     this.indicateurEtatMessage  = contact.indicateurEtatMessage;
     this.tokenReponse           = contact.tokenReponse; 
     this.codeMembre             = contact.codeMembre;
@@ -22,7 +23,7 @@ Contact.create = (newContact, result) => {
           return;
         }
     
-        console.log("created customer: ", { id: res.insertId, ...newContact });
+        console.log("created contact: ", { id: res.insertId, ...newContact });
         result(null, { id: res.insertId, ...newContact });
     });
 };
@@ -59,15 +60,70 @@ Contact.getAll = result => {
 };
 
 Contact.updateById = (codeContact, contact, result) => {
-
+    sql.query(
+        "UPDATE CONTACT SET nom = ?, prenom = ?, courriel = ?, telephone = ?, messageContact = ?, dateReceptionMessage = ?, indicateurEtatMessage = ?, tokenReponse = ?, codeMembre = ? WHERE codeContact = ?",
+        [
+         contact.nom, 
+         contact.prenom, 
+         contact.courriel, 
+         contact.telephone, 
+         contact.messageContact, 
+         contact.dateReceptionMessage, 
+         contact.indicateurEtatMessage, 
+         contact.tokenReponse, 
+         contact.codeMembre, 
+         codeContact
+        ],
+        (err, res) => {
+          if (err) {
+            console.log("error: ", err);
+            result(null, err);
+            return;
+          }
+    
+          if (res.affectedRows == 0) {
+            // not found contact with the id
+            result({ kind: "not_found" }, null);
+            return;
+          }
+    
+          console.log("updated contact: ", { codeContact: codeContact, ...contact });
+          result(null, { codeContact: codeContact, ...contact });
+        }
+      );
 }
 
-Contact.remove = (id, result) => {
 
+Contact.remove = (codeContact, result) => {
+    sql.query("DELETE FROM CONTACT WHERE codeContact = ?", codeContact, (err, res) => {
+        if (err) {
+          console.log("error: ", err);
+          result(null, err);
+          return;
+        }
+    
+        if (res.affectedRows == 0) {
+          // not found contact with the codeContact
+          result({ kind: "not_found" }, null);
+          return;
+        }
+    
+        console.log("deleted contact with codeContact: ", codeContact);
+        result(null, res);
+      });
 };
 
 Contact.removeAll = result => {
-
+    sql.query("DELETE FROM CONTACT", (err, res) => {
+        if (err) {
+          console.log("error: ", err);
+          result(null, err);
+          return;
+        }
+    
+        console.log(`deleted ${res.affectedRows} contacts`);
+        result(null, res);
+      });
 }; 
 
 module.exports = Contact;

@@ -123,17 +123,18 @@ CREATE TABLE INSCRIPTION(
 
 -- Contact  
 CREATE TABLE CONTACT(
-    codeSeqContact INT NOT NULL AUTO_INCREMENT, 
+    codeContact INT NOT NULL AUTO_INCREMENT, 
     nom CHAR(32) NOT NULL, 
     prenom CHAR(32) NOT NULL, 
     courriel CHAR(64) NOT NULL,
     telephone CHAR(10),  -- format code area + numero, sans espaces ni symboles
     messageContact VARCHAR(2048), 
+    dateReceptionMessage DATE, 
     indicateurEtatMessage CHAR(1), 
     tokenReponse CHAR(64), 
     codeMembre INT, 
 
-    PRIMARY KEY(codeSeqContact), 
+    PRIMARY KEY(codeContact), 
     INDEX(indicateurEtatMessage),
     INDEX(codeMembre),
     

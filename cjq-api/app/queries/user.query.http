@@ -1,0 +1,54 @@
+##############################################################
+# Requetes http pour le test de l'API
+##############################################################
+### Définition des variables globales
+
+@hostname = http://localhost:8001
+@codeUser = 1
+####
+#### Get list de users reçus 
+#### 
+GET {{hostname}}/users HTTP/1.1
+X-API-Key: no-key-at-all
+Content-Type: application/json
+
+####
+#### Get list de users reçus 
+#### 
+GET {{hostname}}/users/{{codeUser}} HTTP/1.1
+X-API-Key: no-key-at-all
+Content-Type: application/json
+
+####
+#### Creer un nouveau users
+####
+POST {{hostname}}/users HTTP/1.1
+X-API-Key: no-key-at-all
+Content-Type: application/json
+
+{
+    "name": "Zemane", 
+    "email": "zema@gmail.com", 
+    "active": true
+}
+####
+#### PATCH /users/:codeUser - update the data for a specific user 
+#### 
+PATCH {{hostname}}/users/{{codeUser}} HTTP/1.1
+X-API-Key: no-key-at-all
+Content-Type: application/json
+
+{
+    "name": "Julio Cesar Torres dos Santos", 
+    "email": "juliozohar@gmail.com", 
+    "active": true
+}
+
+####
+#### DELETE /users/:codeUser - remove a specific user 
+#### 
+DELETE {{hostname}}/users/{{codeUser}} HTTP/1.1
+X-API-Key: no-key-at-all
+Content-Type: application/json
+
+

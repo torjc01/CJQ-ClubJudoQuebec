@@ -45,7 +45,7 @@ app.use(cors());                                                        // Confi
 
 // simple route
 app.get("/", (req, res) => {
-  getApp
+  res.status(200).json("API Provider pour Club de Judo de Quebec");
 });
 
 require("./app/routes/customer.routes.js")(app);

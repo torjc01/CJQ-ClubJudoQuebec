@@ -11,11 +11,11 @@ module.exports = app => {
     app.get("/contacts/:codeContact", contacts.findOne); 
 
     // Update a contact with a codeContact
-    app.patch("/contacts/:codeContact"); 
+    app.patch("/contacts/:codeContact", contacts.update); 
 
     // Delete a contact with codeContact
-    app.delete("/contacts/:codeContact");
+    app.delete("/contacts/:codeContact", contacts.delete);
 
     // Delete all contacts 
-    app.delete("/contacts");
+    app.delete("/contacts", contacts.deleteAll);
 };
