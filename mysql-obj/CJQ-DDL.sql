@@ -150,6 +150,7 @@ CREATE TABLE USER(
     username CHAR(32) NOT NULL,
     codeMembre INT, 
     motPasse CHAR(64) NOT NULL, 
+    statusUser CHAR(1),
     niveauPermission CHAR(8) NOT NULL,
     PRIMARY KEY(codeUser),
     FOREIGN KEY(codeMembre)

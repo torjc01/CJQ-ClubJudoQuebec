@@ -99,7 +99,7 @@ INSERT INTO ROLES(nomRole) VALUES ('SuperUser');
 COMMIT;
 
 -- Insertion de valeurs dans la table USER
-INSERT INTO USER(username, codeMembre, motPasse, niveauPermission) VALUES ('torjc01', 1, 'sefiwhwef8wjb23923rub23794f', 'sysadm');
+INSERT INTO USER(username, codeMembre, motPasse, statusUser, niveauPermission) VALUES ('torjc01', 1, 'sefiwhwef8wjb23923rub23794f', 'A', 'sysadm');
 
 -- Insertion de valeurs dans la table USER_ROLE
 INSERT INTO USER_ROLE (codeUser, codeRole) VALUES (1, 5); 
