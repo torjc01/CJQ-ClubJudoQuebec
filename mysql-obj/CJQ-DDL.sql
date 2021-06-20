@@ -27,8 +27,8 @@ USE CJQ;
 
 -- Modalite  
 CREATE TABLE MODALITE(
-    codeModalite    INT         NOT NULL AUTO_INCREMENT, 
-    nomModalite     CHAR(16)    NOT NULL, 
+    codeModalite                INT         NOT NULL AUTO_INCREMENT, 
+    nomModalite                 CHAR(16)    NOT NULL, 
 
     PRIMARY KEY(codeModalite),
     INDEX(nomModalite)
@@ -36,10 +36,10 @@ CREATE TABLE MODALITE(
 
 -- Horaire 
 CREATE TABLE HORAIRE(
-    codeHoraire INT         NOT NULL AUTO_INCREMENT, 
-    heureDebut  TIME        NOT NULL, 
-    heureFin    TIME        NOT NULL, 
-    nomHoraire  CHAR(16)    NOT NULL, 
+    codeHoraire                 INT         NOT NULL AUTO_INCREMENT, 
+    heureDebut                  TIME        NOT NULL, 
+    heureFin                    TIME        NOT NULL, 
+    nomHoraire                  CHAR(16)    NOT NULL, 
 
     PRIMARY KEY(codeHoraire), 
     INDEX(nomHoraire)
@@ -48,11 +48,11 @@ CREATE TABLE HORAIRE(
 -- Entraineur 
 CREATE TABLE ENTRAINEUR(
     codeEntraineur INT NOT NULL AUTO_INCREMENT, 
-    nom CHAR(32) NOT NULL, 
-    prenom CHAR(32) NOT NULL, 
-    registreFederation CHAR(32) NOT NULL, 
-    gradeDan INT, 
-    bio VARCHAR(2048),
+    nom                         CHAR(32)    NOT NULL, 
+    prenom                      CHAR(32)    NOT NULL, 
+    registreFederation          CHAR(32)    NOT NULL, 
+    gradeDan                    INT, 
+    bio                         VARCHAR(2048),
 
     PRIMARY KEY(codeEntraineur), 
     INDEX(nom, prenom)
@@ -60,11 +60,11 @@ CREATE TABLE ENTRAINEUR(
 
 -- Cours 
 CREATE TABLE COURS(
-    codeCours       INT NOT NULL AUTO_INCREMENT, 
-    codeHoraire     INT NOT NULL, 
-    codeModalite    INT NOT NULL, 
-    codeEntraineur  INT NOT NULL, 
-    salleDojo       CHAR(16) NOT NULL,
+    codeCours                   INT         NOT NULL AUTO_INCREMENT, 
+    codeHoraire                 INT         NOT NULL, 
+    codeModalite                INT         NOT NULL, 
+    codeEntraineur              INT         NOT NULL, 
+    salleDojo                   CHAR(16)    NOT NULL,
 
     PRIMARY KEY (codeCours),
     INDEX(codeCours, codeHoraire), 
@@ -79,25 +79,25 @@ CREATE TABLE COURS(
 
 -- Membre  
 CREATE TABLE MEMBRE(
-    codeMembre                  INT NOT NULL AUTO_INCREMENT, 
-    nom                         CHAR(32) NOT NULL, 
-    prenom                      CHAR(32) NOT NULL, 
-    dateNaissance               DATE NOT NULL, 
-    sexe                        CHAR(1) NOT NULL, 
+    codeMembre                  INT         NOT NULL AUTO_INCREMENT, 
+    nom                         CHAR(32)    NOT NULL, 
+    prenom                      CHAR(32)    NOT NULL, 
+    dateNaissance               DATE        NOT NULL, 
+    sexe                        CHAR(1)     NOT NULL, 
     occupation                  CHAR(32),
-    adresse                     CHAR(32) NOT NULL, 
-    ville                       CHAR(32) NOT NULL, 
-    codePostal                  CHAR(6) NOT NULL, 
-    province                    CHAR(32) NOT NULL, 
+    adresse                     CHAR(32)    NOT NULL, 
+    ville                       CHAR(32)    NOT NULL, 
+    codePostal                  CHAR(6)     NOT NULL, 
+    province                    CHAR(32)    NOT NULL, 
     telephoneResidence          CHAR(10),
     telephoneCellulaire         CHAR(10),
     courriel                    CHAR(64),
-    grade                       CHAR(8) NOT NULL, 
-    datePromotionGrade          DATE NOT NULL, 
-    nomPersonneUrgence          CHAR(64) NOT NULL, 
+    grade                       CHAR(8)     NOT NULL, 
+    datePromotionGrade          DATE        NOT NULL, 
+    nomPersonneUrgence          CHAR(64)    NOT NULL, 
     telephoneResidenceUrgence   CHAR(10), 
     telephoneCellulaireUrgence  CHAR(10), 
-    dateMiseAJour               DATE NOT NULL, 
+    dateMiseAJour               DATE        NOT NULL, 
 
     PRIMARY KEY(codeMembre), 
     INDEX(nom, prenom)
@@ -105,11 +105,11 @@ CREATE TABLE MEMBRE(
 
 -- Inscription 
 CREATE TABLE INSCRIPTION( 
-    codeInscription INT NOT NULL AUTO_INCREMENT, 
-    codeMembre      INT NOT NULL, 
-    codeCours       INT NOT NULL, 
-    dateInscription DATE NOT NULL,
-    dateDebut       DATE NOT NULL, 
+    codeInscription             INT         NOT NULL AUTO_INCREMENT, 
+    codeMembre                  INT         NOT NULL, 
+    codeCours                   INT         NOT NULL, 
+    dateInscription             DATE        NOT NULL,
+    dateDebut                   DATE        NOT NULL, 
     
 
     PRIMARY KEY(codeInscription), 
@@ -124,16 +124,16 @@ CREATE TABLE INSCRIPTION(
 
 -- Contact  
 CREATE TABLE CONTACT(
-    codeContact INT NOT NULL AUTO_INCREMENT, 
-    nom CHAR(32) NOT NULL, 
-    prenom CHAR(32) NOT NULL, 
-    courriel CHAR(64) NOT NULL,
-    telephone CHAR(10),  -- format code area + numero, sans espaces ni symboles
-    messageContact VARCHAR(2048), 
-    dateReceptionMessage DATE, 
-    indicateurEtatMessage CHAR(1), 
-    tokenReponse CHAR(64), 
-    codeMembre INT, 
+    codeContact                 INT         NOT NULL AUTO_INCREMENT, 
+    nom                         CHAR(32)    NOT NULL, 
+    prenom                      CHAR(32)    NOT NULL, 
+    courriel                    CHAR(64)    NOT NULL,
+    telephone                   CHAR(10),                           -- format code area + numero, sans espaces ni symboles
+    messageContact              VARCHAR(2048), 
+    dateReceptionMessage        DATE, 
+    indicateurEtatMessage       CHAR(1), 
+    tokenReponse                CHAR(64), 
+    codeMembre                  INT, 
 
     PRIMARY KEY(codeContact), 
     INDEX(indicateurEtatMessage),
@@ -146,12 +146,12 @@ CREATE TABLE CONTACT(
 
 -- User
 CREATE TABLE USER(
-    codeUser INT NOT NULL AUTO_INCREMENT, 
-    username CHAR(32) NOT NULL,
-    codeMembre INT, 
-    motPasse CHAR(64) NOT NULL, 
-    statusUser CHAR(1),
-    niveauPermission CHAR(8) NOT NULL,
+    codeUser                    INT         NOT NULL AUTO_INCREMENT, 
+    username                    CHAR(32)    NOT NULL,
+    codeMembre                  INT, 
+    motPasse                    CHAR(64)    NOT NULL, 
+    statusUser                  CHAR(1),
+    niveauPermission            CHAR(8)     NOT NULL,
     PRIMARY KEY(codeUser),
     FOREIGN KEY(codeMembre)
         REFERENCES MEMBRE(codeMembre)
@@ -166,8 +166,8 @@ CREATE TABLE ROLES(
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 CREATE TABLE USER_ROLE(
-    codeUser INT NOT NULL, 
-    codeRole INT NOT NULL,
+    codeUser                    INT         NOT NULL, 
+    codeRole                    INT         NOT NULL,
     PRIMARY KEY(codeUser, codeRole),
     FOREIGN KEY(codeUser)
         REFERENCES USER(codeUser),
@@ -202,3 +202,17 @@ WHERE
     D.codeModalite   = A.codeModalite 
 AND D.codeHoraire    = B.codeHoraire 
 AND D.codeEntraineur = C.codeEntraineur		
+
+
+--- ******************************************************************
+--- *****     Drops database dummy si elle est encore là. 
+--- ******************************************************************
+
+DROP DATABASE IF EXISTS dummy; 
+
+--- ******************************************************************
+--- ******************************************************************
+--- ******************************************************************
+--- ******************************************************************
+--- ******************************************************************
+--- EOF.
