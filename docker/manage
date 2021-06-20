@@ -230,7 +230,7 @@ configureEnvironment() {
     export MYSQL_PERSISTENCE_LOCALDIR='~/Development/mysql-container/data'
   fi
   
-  export MYSQL_DATABASE=CJQ
+  export MYSQL_DATABASE=dummy
   export MYSQL_ROOT_PASSWORD=changemenow
   # export MYSQL_PORT_LOCAL=3306
   # export MYSQL_PORT_CONTAINER=3307
