@@ -52,6 +52,7 @@ CREATE TABLE ENTRAINEUR(
     prenom CHAR(32) NOT NULL, 
     registreFederation CHAR(32) NOT NULL, 
     gradeDan INT, 
+    bio VARCHAR(2048),
 
     PRIMARY KEY(codeEntraineur), 
     INDEX(nom, prenom)
@@ -155,6 +156,25 @@ CREATE TABLE USER(
         REFERENCES MEMBRE(codeMembre)
 
 )ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE ROLES(
+    codeRole INT NOT NULL AUTO_INCREMENT, 
+    nomRole CHAR(16) NOT NULL, 
+    PRIMARY KEY(codeRole)
+
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE USER_ROLE(
+    codeUser INT NOT NULL, 
+    codeRole INT NOT NULL,
+    PRIMARY KEY(codeUser, codeRole),
+    FOREIGN KEY(codeUser)
+        REFERENCES USER(codeUser),
+    FOREIGN KEY(codeRole)
+        REFERENCES ROLES(codeRole)
+
+)ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
 
 
 -- ******************************************************************
