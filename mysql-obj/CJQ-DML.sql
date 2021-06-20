@@ -1,7 +1,7 @@
 -- ###
 -- Filename: CJQ-DML.sql
--- Fichier de DDL "Data manipulation language" pour la base de données de 
--- l'application du Club de Judo de Québec. 
+-- Fichier de DDL "Data manipulation language" pour faire le seeding de la 
+-- base de données de l'application du Club de Judo de Québec. 
 -- Le DML fait le traitement initial de la base de donnés, comme la charge
 -- registres qui seront la base des tables de support pour le "kickstart" 
 -- de la BD. 
@@ -52,12 +52,12 @@ VALUES
 COMMIT; 
 
 --  Insertion de valeurs dans la table ENTRAINEUR
-INSERT INTO ENTRAINEUR(nom, prenom, registreFederation, gradeDan)
+INSERT INTO ENTRAINEUR(nom, prenom, registreFederation, gradeDan, bio)
     VALUES 
-    ('Miúra', "Takaôki", 'IJF-23423423-CA', 5);
-INSERT INTO ENTRAINEUR(nom, prenom, registreFederation, gradeDan)
+    ('Miúra', "Takaôki", 'IJF-23423423-CA', 5, "Premier entraîneur du dojo.");
+INSERT INTO ENTRAINEUR(nom, prenom, registreFederation, gradeDan, bio)
     VALUES 
-    ('Ozawa', "Keiji", 'IJF-8764654429-CA', 7);
+    ('Ozawa', "Keiji", 'IJF-8764654429-CA', 7, "Deuxième entraîneur du dojo.");
 COMMIT; 
 
 -- Insertion de valeurs dans la table COURS
@@ -71,7 +71,7 @@ COMMIT;
 
 --  Insertion de valeurs dans la table INSCRIPTION
 INSERT INTO INSCRIPTION (codeMembre, codeCours, dateInscription, dateDebut)
-    VALUES (1, 1, '2021-06-03', '2021-06-07'); 
+    VALUES (1, 1, (SELECT * FROM V_DATE), (SELECT * FROM V_DATE)); 
 COMMIT;
 
 --  Insertion de valeurs dans la table CONTACT
@@ -80,11 +80,31 @@ INSERT INTO CONTACT (nom, prenom, courriel, telephone, messageContact, dateRecep
             'R', 'asdahjk4298323jhksada9sd8u7234hjd23==', NULL); 
 INSERT INTO CONTACT (nom, prenom, courriel, telephone, messageContact, dateReceptionMessage, indicateurEtatMessage, tokenReponse, codeMembre)
     VALUES ('Torres dos Santos', 'Julio Cesar', 'juliozohar@gmail.com', '4183439832', 
-            "Internet, Web, and mobile applications that provide security, but also anonymity of users, are gaining increasing interest and importance. Examples of such new applications are various innovative payment systems, digital notaries, electronic voting, sharing of sensitive documents, electronic auctions, medical applications, and many others. The common characteristic of these applications is that they all require anonymity of users and their transactions. In addition to their anonymity, user identifiers, data, and transactions handled by those applications also require standard security services, such as identification, authentication, and authorization of users, data confidentiality, data integrity, sender’s/receiver’s authenticity, and non-repudiation of transactions. Providing these security services in combination with anonymity is especially challenging, because all of them require explicit user identification and authentication."    
+            "Internet, Web, and mobile applications that provide security, but also anonymity of users, are gaining increasing interest and importance. Examples of such new applications are various innovative payment systems, digital notaries, electronic voting, sharing of sensitive documents, electronic auctions, medical applications, and many others. The common characteristic of these applications is that they all require anonymity of users and their transactions. In addition to their anonymity, user identifiers, data, and transactions handled by those applications also require standard security services, such as identification, authentication, and authorization of users, data confidentiality, data integrity, sender’s/receiver’s authenticity, and non-repudiation of transactions. Providing these security services in combination with anonymity is especially challenging, because all of them require explicit user identification and authentication.",    
+            "20210605", 'R', 'hjkrtasdahjk4298323jda9sd8u7234hjd23==', NULL); 
+INSERT INTO CONTACT (nom, prenom, courriel, telephone, messageContact, dateReceptionMessage, indicateurEtatMessage, tokenReponse, codeMembre)
+    VALUES ('Perez', 'Ana', 'aperesr@gmail.com', '5561398323', 
+            "Internet, Web, and mobile applications that provide security, but also anonymity of users, are gaining increasing interest and importance. Examples of such new applications are various innovative payment systems, digital notaries, electronic voting, sharing of sensitive documents, electronic auctions, medical applications, and many others. The common characteristic of these applications is that they all require anonymity of users and their transactions. In addition to their anonymity, user identifiers, data, and transactions handled by those applications also require standard security services, such as identification, authentication, and authorization of users, data confidentiality, data integrity, sender’s/receiver’s authenticity, and non-repudiation of transactions. Providing these security services in combination with anonymity is especially challenging, because all of them require explicit user identification and authentication.",    
             "20210605", 'R', 'hjkrtasdahjk4298323jda9sd8u7234hjd23==', NULL); 
 
 COMMIT; 
 
+-- Insertion de valeurs dans la table ROLE 
+INSERT INTO ROLES(nomRole) VALUES ('Public'); 
+INSERT INTO ROLES(nomRole) VALUES ('User');
+INSERT INTO ROLES(nomRole) VALUES ('Moderateur');
+INSERT INTO ROLES(nomRole) VALUES ('Admin');
+INSERT INTO ROLES(nomRole) VALUES ('SuperUser');
+
+COMMIT;
+
+-- Insertion de valeurs dans la table USER
+INSERT INTO USER(username, codeMembre, motPasse, niveauPermission) VALUES ('torjc01', 1, 'sefiwhwef8wjb23923rub23794f', 'sysadm');
+
+-- Insertion de valeurs dans la table USER_ROLE
+INSERT INTO USER_ROLE (codeUser, codeRole) VALUES (1, 5); 
+INSERT INTO USER_ROLE (codeUser, codeRole) VALUES (1, 4); 
+INSERT INTO USER_ROLE (codeUser, codeRole) VALUES (1, 3); 
 
 
 -- Display data created
@@ -94,4 +114,10 @@ SELECT * from MEMBRE;
 SELECT * FROM ENTRAINEUR;
 SELECT * FROM COURS; 
 SELECT * FROM INSCRIPTION;
+SELECT * FROM CONTACT; 
+SELECT * FROM USER; 
+SELECT * FROM ROLES; 
+SELECT * FROM USER_ROLE; 
+SELECT * FROM V_DATE; 
+SELECT * FROM V_NOW;
 SELECT * FROM V_COURS_EVENEMENT; 
