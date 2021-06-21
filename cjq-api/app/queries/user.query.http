@@ -27,10 +27,13 @@ X-API-Key: no-key-at-all
 Content-Type: application/json
 
 {
-    "name": "Zemane", 
-    "email": "zema@gmail.com", 
-    "active": true
+    "username": "MB84",
+    "codeMembre": 1,
+    "motPasse": "sdlkjsdsd2",
+    "statusUser": "Z",
+    "niveauPermission": "simple"
 }
+
 ####
 #### PATCH /users/:codeUser - update the data for a specific user 
 #### 
@@ -39,9 +42,11 @@ X-API-Key: no-key-at-all
 Content-Type: application/json
 
 {
-    "name": "Julio Cesar Torres dos Santos", 
-    "email": "juliozohar@gmail.com", 
-    "active": true
+    "username": "torj01",
+    "codeMembre": 1,
+    "motPasse": "elfkhefoi8h3e89ejqeb79wet73rb4y0thm092",
+    "statusUser": "A",
+    "niveauPermission": "sysadm"
 }
 
 ####
