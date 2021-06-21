@@ -29,7 +29,7 @@ Contact.create = (newContact, result) => {
 };
 
 Contact.findById = (codeContact, result) => {
-    sql.query(`SELECT * FROM CONTACT WHERE codeContact = ${codeContact}`, (err, res) => {
+    sql.query(`SELECT * FROM CONTACT WHERE codeContact = ?`, codeContact, (err, res) => {
         if (err) {
             console.log("error: ", err);
             result(err, null);
