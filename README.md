@@ -66,9 +66,9 @@ Open the file `./docker/manage`, find the function `configureEnvironment()` and 
 
 - `MYSQL_ROOT_PASSWORD`: the password for the database root user; e.g `'blitzkrieg'`
 
-- `MYSQL_PORT_LOCAL`: the database port on the local machine; e.g. `3306`
+- `MYSQL_PORT_LOCAL`: the database port on the local machine; e.g. `3308`
 
-- `MYSQL_PORT_CONTAINER`: the database on the container port; e.g. `3307`
+- `MYSQL_PORT_CONTAINER`: the database on the container port; e.g. `3308`
 
 - `MYSQL_PERSISTENCE_LOCALDIR`: the local dir where the persistent database files will be stored; e.g. `'~/Development/mysql-container/data'`. You should use your operating system's naming convention to setup the persistence local dir. For instance, if you're using windows, the example above could be redefined as `'C:\Development\mysql-container\data'`. 
 
@@ -96,7 +96,7 @@ $ cd docker
 $ ./manage build 
 ```
 
-Now, the last step is to build the database container. It will setup a `mysql server community edition` container answering on port 3306, and `Adminer`, a web application for database admin, on port 8888. 
+Now, the last step is to build the database container. It will setup a `mysql server community edition` container answering on port 3308, and `Adminer`, a web application for database admin, on port 8888. 
 
 ``` 
 $ ./manage build-db
