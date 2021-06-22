@@ -4,7 +4,7 @@
 ### Définition des variables globales
 
 @hostname = http://localhost:8001
-@codeUser = 1
+@codeUser = 2
 ####
 #### Get list de users reçus 
 #### 
@@ -42,11 +42,11 @@ X-API-Key: no-key-at-all
 Content-Type: application/json
 
 {
-    "username": "torj01",
+    "username": "torjico01",
     "codeMembre": 1,
-    "motPasse": "elfkhefoi8h3e89ejqeb79wet73rb4y0thm092",
-    "statusUser": "A",
-    "niveauPermission": "sysadm"
+    "motPasse": "motdepasse",
+    "statusUser": "Z",
+    "niveauPermission": "zesadm"
 }
 
 ####
