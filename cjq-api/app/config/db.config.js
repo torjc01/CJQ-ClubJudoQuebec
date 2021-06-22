@@ -1,8 +1,8 @@
 module.exports = {
     HOST: "db",
     PORT: "3308",
-    USER: "cjqweb",
-    PASSWORD: "123456",
+    USER: "root",
+    PASSWORD: "changemenow",
     DB: "CJQ"
   };
   
