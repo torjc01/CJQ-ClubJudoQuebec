@@ -34,7 +34,7 @@ Content-Type: application/json
     "telephone": "5813089368", 
     "messageContact": "Internet, Web, and mobile applications that provide security, but also anonymity of users, are gaining increasing interest and importance. Examples of such new applications are various innovative payment systems, digital notaries, electronic voting, sharing of sensitive documents, electronic auctions, medical applications, and many others. The common characteristic of these applications is that they all require anonymity of users and their transactions. In addition to their anonymity, user identifiers, data, and transactions handled by those applications also require standard security services, such as identification, authentication, and authorization of users, data confidentiality, data integrity, sender’s/receiver’s authenticity, and non-repudiation of transactions. Providing these security services in combination with anonymity is especially challenging, because all of them require explicit user identification and authentication.", 
     "dateReceptionMessage": "20210618", 
-    "indicateurEtatMessage": "R", 
+    "statusMessage": "R", 
     "tokenReponse": "as138haljsbd293bqldb923qlwdb293dh3f24twvyj6ukjwq33==", 
     "codeMembre": null
 }

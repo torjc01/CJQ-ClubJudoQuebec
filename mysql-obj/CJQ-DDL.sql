@@ -131,12 +131,12 @@ CREATE TABLE CONTACT(
     telephone                   CHAR(10),                           -- format code area + numero, sans espaces ni symboles
     messageContact              VARCHAR(2048), 
     dateReceptionMessage        DATE, 
-    indicateurEtatMessage       CHAR(1), 
+    statusMessage               CHAR(1), 
     tokenReponse                CHAR(64), 
     codeMembre                  INT, 
 
     PRIMARY KEY(codeContact), 
-    INDEX(indicateurEtatMessage),
+    INDEX(statusMessage),
     INDEX(codeMembre),
     
     FOREIGN KEY(codeMembre)

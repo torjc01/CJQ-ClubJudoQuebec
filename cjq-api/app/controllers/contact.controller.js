@@ -17,7 +17,7 @@ exports.create = (req, res) => {
     telephone: req.body.telephone,
     messageContact: req.body.messageContact,
     dateReceptionMessage: req.body.dateReceptionMessage,
-    indicateurEtatMessage: req.body.indicateurEtatMessage,
+    statusMessage: req.body.statusMessage,
     tokenReponse: req.body.tokenReponse,
     codeMembre: req.body.codeMembre
   });

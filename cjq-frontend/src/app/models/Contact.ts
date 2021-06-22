@@ -6,7 +6,7 @@ export interface Contact {
     telephone               : string; 
     messageContact          : string;
     dateReceptionMessage    : string; 
-    indicateurEtatMessage   : string;
+    statusMessage           : string;
     tokenReponse            : string 
     codeMembre              : number
 }

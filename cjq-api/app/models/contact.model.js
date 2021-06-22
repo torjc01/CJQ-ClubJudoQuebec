@@ -7,7 +7,7 @@ const Contact = function(contact) {
     this.telephone              = contact.telephone; 
     this.messageContact         = contact.messageContact; 
     this.dateReceptionMessage   = contact.dateReceptionMessage;
-    this.indicateurEtatMessage  = contact.indicateurEtatMessage;
+    this.statusMessage          = contact.statusMessage;
     this.tokenReponse           = contact.tokenReponse; 
     this.codeMembre             = contact.codeMembre;
 }
@@ -61,7 +61,7 @@ Contact.getAll = result => {
 
 Contact.updateById = (codeContact, contact, result) => {
     sql.query(
-        "UPDATE CONTACT SET nom = ?, prenom = ?, courriel = ?, telephone = ?, messageContact = ?, dateReceptionMessage = ?, indicateurEtatMessage = ?, tokenReponse = ?, codeMembre = ? WHERE codeContact = ?",
+        "UPDATE CONTACT SET nom = ?, prenom = ?, courriel = ?, telephone = ?, messageContact = ?, dateReceptionMessage = ?, statusMessage = ?, tokenReponse = ?, codeMembre = ? WHERE codeContact = ?",
         [
          contact.nom, 
          contact.prenom, 
@@ -69,7 +69,7 @@ Contact.updateById = (codeContact, contact, result) => {
          contact.telephone, 
          contact.messageContact, 
          contact.dateReceptionMessage, 
-         contact.indicateurEtatMessage, 
+         contact.statusMessage, 
          contact.tokenReponse, 
          contact.codeMembre, 
          codeContact

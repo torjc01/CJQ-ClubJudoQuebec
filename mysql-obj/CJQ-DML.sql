@@ -75,14 +75,14 @@ INSERT INTO INSCRIPTION (codeMembre, codeCours, dateInscription, dateDebut)
 COMMIT;
 
 --  Insertion de valeurs dans la table CONTACT
-INSERT INTO CONTACT (nom, prenom, courriel, telephone, messageContact, dateReceptionMessage, indicateurEtatMessage, tokenReponse, codeMembre)
+INSERT INTO CONTACT (nom, prenom, courriel, telephone, messageContact, dateReceptionMessage, statusMessage, tokenReponse, codeMembre)
     VALUES ('Blanchet', 'Gerard', 'gblanchet@gmail.com', '4183439832', "J'aimerais avoir de l'info sur le cours de judo pour adultes...", "20210530", 
             'R', 'asdahjk4298323jhksada9sd8u7234hjd23==', NULL); 
-INSERT INTO CONTACT (nom, prenom, courriel, telephone, messageContact, dateReceptionMessage, indicateurEtatMessage, tokenReponse, codeMembre)
+INSERT INTO CONTACT (nom, prenom, courriel, telephone, messageContact, dateReceptionMessage, statusMessage, tokenReponse, codeMembre)
     VALUES ('Torres dos Santos', 'Julio Cesar', 'juliozohar@gmail.com', '4183439832', 
             "Internet, Web, and mobile applications that provide security, but also anonymity of users, are gaining increasing interest and importance. Examples of such new applications are various innovative payment systems, digital notaries, electronic voting, sharing of sensitive documents, electronic auctions, medical applications, and many others. The common characteristic of these applications is that they all require anonymity of users and their transactions. In addition to their anonymity, user identifiers, data, and transactions handled by those applications also require standard security services, such as identification, authentication, and authorization of users, data confidentiality, data integrity, sender’s/receiver’s authenticity, and non-repudiation of transactions. Providing these security services in combination with anonymity is especially challenging, because all of them require explicit user identification and authentication.",    
             "20210605", 'R', 'hjkrtasdahjk4298323jda9sd8u7234hjd23==', NULL); 
-INSERT INTO CONTACT (nom, prenom, courriel, telephone, messageContact, dateReceptionMessage, indicateurEtatMessage, tokenReponse, codeMembre)
+INSERT INTO CONTACT (nom, prenom, courriel, telephone, messageContact, dateReceptionMessage, statusMessage, tokenReponse, codeMembre)
     VALUES ('Perez', 'Ana', 'aperesr@gmail.com', '5561398323', 
             "Internet, Web, and mobile applications that provide security, but also anonymity of users, are gaining increasing interest and importance. Examples of such new applications are various innovative payment systems, digital notaries, electronic voting, sharing of sensitive documents, electronic auctions, medical applications, and many others. The common characteristic of these applications is that they all require anonymity of users and their transactions. In addition to their anonymity, user identifiers, data, and transactions handled by those applications also require standard security services, such as identification, authentication, and authorization of users, data confidentiality, data integrity, sender’s/receiver’s authenticity, and non-repudiation of transactions. Providing these security services in combination with anonymity is especially challenging, because all of them require explicit user identification and authentication.",    
             "20210605", 'R', 'hjkrtasdahjk4298323jda9sd8u7234hjd23==', NULL); 

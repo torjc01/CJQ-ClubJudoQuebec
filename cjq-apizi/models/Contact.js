@@ -7,7 +7,7 @@ const Contact = function(contact){
     this.courriel               = contact.courriel; 
     this.telephone              = contact.telephone;
     this.messageContact         = contact.messageContact; 
-    this.indicateurEtatMessage  = contact.indicateurEtatMessage; 
+    this.statusMessage          = contact.statusMessage; 
     this.tokenReponse           = contact.tokenReponse; 
     this.codeMembre             = contact.codeMembre;
 }; 
