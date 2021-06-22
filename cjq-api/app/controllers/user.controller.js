@@ -30,7 +30,16 @@ exports.create = (req, res) => {
 };
 
 // Retrieve all users from the db
-exports.findAll = (req, res) => {};
+exports.findAll = (req, res) => {
+    User.getAll((err, data) => {
+        if (err)
+          res.status(500).send({
+            message:
+              err.message || "Some error occurred while retrieving users."
+          });
+        else res.send(data);
+      });
+};
 
 // Find a single user with a codeUser
 exports.findOne = (req, res) => {};

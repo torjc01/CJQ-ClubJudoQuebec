@@ -21,4 +21,16 @@ User.create = (newUser, result) => {
     });
 };
 
+User.getAll = result => {
+    sql.query("SELECT * FROM USER", (err, res) => {
+        if(err){
+            console.error(`Error: ${err}`); 
+            result(null, err); 
+            return;
+        }
+        console.log(`Users: ${res}`); 
+        result(null, res); 
+    });
+}; 
+
 module.exports = User;
