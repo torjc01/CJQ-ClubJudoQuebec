@@ -23,11 +23,11 @@ const express = require("express");
 const bodyParser = require("body-parser");
 let swaggerUi   = require('swagger-ui-express'); 
 let cors        = require('cors'); 
-//const swaggerDoc = require(swaggerFile);
 
 let { appName, hostname, port, swaggerFile } 
                 = require('./app/config/config');
 const getApp    = require('./app/controllers/home.controller');
+const swaggerDoc = require(swaggerFile);
 
 const app = express();
 
@@ -41,7 +41,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(cors());                                                        // Configure middleware pour CORS
 
-//app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDoc));     // Configure swagger pour la documentation de l'API
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDoc));     // Configure swagger pour la documentation de l'API
 
 // simple route
 app.get("/", (req, res) => {
