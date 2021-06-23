@@ -45,7 +45,7 @@ Content-Type: application/json
     "username": "torjico01",
     "codeMembre": 1,
     "motPasse": "motdepasse",
-    "statusUser": "Z",
+    "statusUser": "A",
     "niveauPermission": "zesadm"
 }
 

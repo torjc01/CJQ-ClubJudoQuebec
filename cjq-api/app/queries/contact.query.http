@@ -47,7 +47,7 @@ Content-Type: application/json
 ####
 #### Update un nouveau contact
 ####
-PATCH {{hostname}}/contacts/{{{{codeContact}}}} HTTP/1.1
+PATCH {{hostname}}/contacts/{{codeContact}} HTTP/1.1
 X-API-Key: no-key-at-all
 Content-Type: application/json
 
