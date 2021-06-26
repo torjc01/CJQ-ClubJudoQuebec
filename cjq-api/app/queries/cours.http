@@ -1,0 +1,26 @@
+##############################################################
+# Requetes http pour le test de l'API
+##############################################################
+### Définition des variables globales
+
+@hostname = http://localhost:8001
+
+#### 
+#### ###########################################################################
+####      C O U R S  
+#### ###########################################################################
+#### 
+@codeCours = 1
+####
+#### Get list de cours
+#### 
+GET {{hostname}}/cours HTTP/1.1
+X-API-Key: no-key-at-all
+Content-Type: application/json
+
+####
+#### Cherche cours unique
+#### 
+GET {{hostname}}/cours/{{codeCours}} HTTP/1.1
+X-API-Key: no-key-at-all
+Content-Type: application/json
