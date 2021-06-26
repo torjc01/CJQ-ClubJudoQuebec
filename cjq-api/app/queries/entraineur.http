@@ -1,0 +1,26 @@
+##############################################################
+# Requetes http pour le test de l'API
+##############################################################
+### Définition des variables globales
+
+@hostname = http://localhost:8001
+
+#### 
+#### ###########################################################################
+####      E N T R A I N E U R 
+#### ###########################################################################
+#### 
+@codeEntraineur = 1
+####
+#### Get list d'entraineurs
+#### 
+GET {{hostname}}/entraineurs HTTP/1.1
+X-API-Key: no-key-at-all
+Content-Type: application/json
+
+####
+#### Cherche entraineur unique
+#### 
+GET {{hostname}}/entraineurs/{{codeEntraineur}} HTTP/1.1
+X-API-Key: no-key-at-all
+Content-Type: application/json
