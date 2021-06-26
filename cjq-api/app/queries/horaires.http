@@ -1,0 +1,26 @@
+##############################################################
+# Requetes http pour le test de l'API
+##############################################################
+### Définition des variables globales
+
+@hostname = http://localhost:8001
+
+#### 
+#### ###########################################################################
+####      H O R A I R E  
+#### ###########################################################################
+#### 
+@codeHoraire = 0
+####
+#### Get list d'horaires
+#### 
+GET {{hostname}}/horaires HTTP/1.1
+X-API-Key: no-key-at-all
+Content-Type: application/json
+
+####
+#### Cherche horaire unique
+#### 
+GET {{hostname}}/horaires/{{codeHoraire}} HTTP/1.1
+X-API-Key: no-key-at-all
+Content-Type: application/json
