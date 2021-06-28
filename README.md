@@ -141,7 +141,37 @@ Show what the library does as concisely as possible, developers should be able t
 
 The API documentation for the project is available at the address [Swagger OpenAPI](http://localhost:8001/api-docs/).
 
-Depending on the size of the project, if it is small and simple enough the reference docs can be added to the README. For medium size to larger projects it is important to at least provide a link to where the API reference docs live.
+
+|#  |Method | Endpoint | Function | Responses | 
+|---|-------|----------|----------|-----------|
+|1|  POST   | /auth/signup | Signs a new user up | 201, 400 |
+|2|  POST   | /auth/signin | Signs a user in | 200, 401 | 
+|3|  GET    | /me/:codeUser | Retrieve information of the user | 200, 404 |
+|4|  GET    | [/users](http://localhost:8001/users) | Retrieve all users avaliable | 200, 404
+|5|  GET    | [/users/:codeUser](http://localhost:8001/users/1) | Retrieve a specific user identified by id | 200, 404 |
+|6|  POST   | /users | Create a new users | 201, 400 | 
+|7|  PATCH  | /users/:codeUser | Updates information from a user identified by id | 204, 400 | 
+|8|  DELETE | /users/:codeUser | Delete a specific user identified by id | 204, 400 | 
+|9|  GET    | [/members](http://localhost:8001/members) | Retrieve all members avaliable | 200, 404 | 
+|10| GET    | [/members/:codeMember](http://localhost:8001/members/1) | Retrieve a specific member identified by id | 200, 404 |
+|11| POST   | /members | Create a new member | 201, 400 | 
+|12| PATCH  | /members/:codeMember | Updates information from a member identified by id | 204, 400 | 
+|13| DELETE | /members/:codeMember | Delete a specific member identified by id | 204, 400 | 
+|14| GET    | [/modalites](http://localhost:8001/modalites) | Retrieve all modalites available | 200, 404 | 
+|15| GET    | [/modalites/:codeModalite](http://localhost:8001/modalites/1) | Retrieve a specific modalite | 200, 404 |  
+|16| GET    | [/horaires](http://localhost:8001/horaires) | Retrieve all horaires available | 200, 404 | 
+|17| GET    | [/horaires/:codeHoraire](http://localhost:8001/horaires/1) | Retrieve a specific horaire identified by id | 200, 404 | 
+|18| GET    | [/entraineurs](http://localhost:8001/entraineurs) | Retrieve all entraineurs | 200, 404 | 
+|19| GET    | [/entraineurs/:codeEntraineur](http://localhost:8001/entraineurs/1) | Retrieve a specific entraineur identified by id | 200, 404 | 
+|20| GET    | [/cours](http://localhost:8001/cours) | Retrieve all cours avalable | 200, 404 | 
+|21| GET    | [/cours/:codeCours](http://localhost:8001/cours/1) | Retrieve a specific cours identified by id | 200, 404 | 
+|22| GET    | [/contacts](http://localhost:8001/contacts) | Retrieve all contacts avaliable| 200, 404 | 
+|23| GET    | [/contacts/:codeContact](http://localhost:8001/contacts/1) | Retrieve a specific contact identified by id | 200, 404 | 
+|24| POST   | /contacts | Create a new contact | 201, 400 | 
+|25| PATCH  | /contacts/:codeContact | Updates information from a contact identified by id | 204, 400 | 
+|26| DELETE | /contacts/:codeContact | Delete a specific contact identified by id | 204, 400 | 
+
+
 
 The data model is simplified for the RAC's requisites, yet it is still complex enough to demonstrate knowledge on dealing with data modelling and database programming / administration. 
 
