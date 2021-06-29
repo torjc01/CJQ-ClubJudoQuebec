@@ -149,9 +149,11 @@ CREATE TABLE USER(
     codeUser                    INT         NOT NULL AUTO_INCREMENT, 
     username                    CHAR(32)    NOT NULL,
     codeMembre                  INT, 
-    motPasse                    CHAR(64)    NOT NULL, 
-    statusUser                  CHAR(1),
+    motPasse                    CHAR(64)    NOT NULL,
     niveauPermission            CHAR(8)     NOT NULL,
+    dateCree                    DATE, 
+    dateMiseAJour               DATE, 
+    statusUser                  CHAR(1),
     PRIMARY KEY(codeUser),
     FOREIGN KEY(codeMembre)
         REFERENCES MEMBRE(codeMembre)
@@ -168,6 +170,8 @@ CREATE TABLE ROLES(
 CREATE TABLE USER_ROLE(
     codeUser                    INT         NOT NULL, 
     codeRole                    INT         NOT NULL,
+    dateCree                    DATE, 
+    dateMiseAJour               DATE,
     PRIMARY KEY(codeUser, codeRole),
     FOREIGN KEY(codeUser)
         REFERENCES USER(codeUser),
