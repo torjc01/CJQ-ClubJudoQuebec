@@ -22,14 +22,6 @@ Le club veut une page d'accueil à partir de laquelle les visiteurs pourront cho
 * **Équipement:** liste du matériel, prix, achat en ligne; 
 * **Gestion:** sert à la mise à jour des classements, inscriptions des équipes, etc, uniquement accessible aux gestionnaires du site. 
 
-### Synopsis
-
-At the top of the file there should be a short introduction and/ or overview that explains **what** the project is. This description should match descriptions added for package managers (Gemspec, package.json, etc.)
-
-### Motivation
-
-A short description of the motivation behind the creation and maintenance of the project. This should explain why the project exists.
-
 ## Getting Started / Commencer
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
