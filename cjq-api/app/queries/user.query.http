@@ -55,5 +55,3 @@ Content-Type: application/json
 DELETE {{hostname}}/users/{{codeUser}} HTTP/1.1
 X-API-Key: no-key-at-all
 Content-Type: application/json
-
-

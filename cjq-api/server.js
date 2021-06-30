@@ -37,7 +37,7 @@ app.use(bodyParser.json());
 // parse requests of content-type - application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: true }));
 
-//app.use(express.json());                                                // Configure middleware de lecture de json
+//app.use(express.json());                                              // Configure middleware de lecture de json
 
 app.use(cors());                                                        // Configure middleware pour CORS
 
