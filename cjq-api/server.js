@@ -50,6 +50,10 @@ app.get("/", (req, res) => {
 
 require("./app/routes/customer.routes.js")(app);
 require("./app/routes/contact.routes.js")(app);
+require("./app/routes/modalite.routes")(app); 
+require("./app/routes/entraineur.routes")(app); 
+require("./app/routes/horaire.routes")(app); 
+require("./app/routes/cours.routes")(app);
 require("./app/routes/user.routes.js")(app); 
 
 // set port, listen for requests

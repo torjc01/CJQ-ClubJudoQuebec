@@ -1,0 +1,26 @@
+##############################################################
+# Requetes http pour le test de l'API
+##############################################################
+### Définition des variables globales
+
+@hostname = http://localhost:8001
+
+#### 
+#### ###########################################################################
+####      M O D A L I T E 
+#### ###########################################################################
+#### 
+@codeModalite = 1
+####
+#### Get list de contacts reçus 
+#### 
+GET {{hostname}}/modalites HTTP/1.1
+X-API-Key: no-key-at-all
+Content-Type: application/json
+
+####
+#### Cherche modalité unique
+#### 
+GET {{hostname}}/modalites/{{codeModalite}} HTTP/1.1
+X-API-Key: no-key-at-all
+Content-Type: application/json
