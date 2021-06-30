@@ -11,6 +11,7 @@ import { CoursComponent } from './cours/cours.component';
 import { EquipeComponent } from './equipe/equipe.component';
 import { EquipementComponent } from './equipement/equipement.component';
 import { GestionComponent } from './gestion/gestion.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -27,6 +28,7 @@ import { GestionComponent } from './gestion/gestion.component';
   imports: [
     BrowserModule, 
     FormsModule,
+    HttpClientModule,
     RouterModule.forRoot([
       { path: 'judo', component: JudoComponent}, 
       { path: 'club', component: ClubComponent}, 
