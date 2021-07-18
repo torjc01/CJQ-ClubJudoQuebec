@@ -106,6 +106,14 @@ INSERT INTO USER_ROLE (codeUser, codeRole) VALUES (1, 5);
 INSERT INTO USER_ROLE (codeUser, codeRole) VALUES (1, 4); 
 INSERT INTO USER_ROLE (codeUser, codeRole) VALUES (1, 3); 
 
+-- Insertion des continents (Auxiliaire table)
+INSERT INTO CONTINENTE(codigoContinente, nomeContinente) VALUES ('AF', 'África');
+INSERT INTO CONTINENTE(codigoContinente, nomeContinente) VALUES ('NA', 'América do Norte');
+INSERT INTO CONTINENTE(codigoContinente, nomeContinente) VALUES ('OC', 'Oceania');
+INSERT INTO CONTINENTE(codigoContinente, nomeContinente) VALUES ('AN', 'Antártica');
+INSERT INTO CONTINENTE(codigoContinente, nomeContinente) VALUES ('AS', 'Ásia');
+INSERT INTO CONTINENTE(codigoContinente, nomeContinente) VALUES ('EU', 'Europa');
+INSERT INTO CONTINENTE(codigoContinente, nomeContinente) VALUES ('SA', 'América do Sul');
 
 -- Display data created
 SELECT * from MODALITE; 
@@ -118,6 +126,7 @@ SELECT * FROM CONTACT;
 SELECT * FROM USER; 
 SELECT * FROM ROLES; 
 SELECT * FROM USER_ROLE; 
+SELECT * FROM CONTINENTE; 
 SELECT * FROM V_DATE; 
 SELECT * FROM V_NOW;
 SELECT * FROM V_COURS_EVENEMENT; 

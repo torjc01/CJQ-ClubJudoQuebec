@@ -180,6 +180,11 @@ CREATE TABLE USER_ROLE(
 
 )ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+CREATE TABLE CONTINENTE(
+  codigoContinente CHAR(2) NOT NULL, 
+  nomeContinente   CHAR(16) NOT NULL, 
+  PRIMARY KEY(codigoContinente)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
 -- ******************************************************************
